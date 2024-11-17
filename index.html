@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
 body {
-  background: #f5f7fa;
+  background: #e6f3ff; /* Lighter blue background */
   font-family: "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0;
   padding: 20px;
@@ -16,14 +16,14 @@ body {
   max-width: 800px;
   margin: 0 auto;
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 20px; /* Rounder corners */
   padding: 25px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 16px rgba(52, 152, 219, 0.15); /* Softer blue shadow */
 }
 
 h1 {
   text-align: center;
-  color: #2c3e50;
+  color: #3498db; /* Brighter blue */
   font-size: 2.4em;
   margin-bottom: 25px;
   font-weight: 600;
@@ -44,26 +44,33 @@ h1 {
 
 .view-btn {
   padding: 8px 16px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  border: 2px solid #bde0ff; /* Light blue border */
+  border-radius: 12px; /* Rounder corners */
   background: white;
   cursor: pointer;
   transition: all 0.3s ease;
+  color: #3498db;
+}
+
+.view-btn:hover {
+  background: #f0f8ff;
 }
 
 .view-btn.active {
   background: #3498db;
   color: white;
   border-color: #3498db;
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
 }
 
 select {
   padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
+  border-radius: 12px;
+  border: 2px solid #bde0ff;
   font-size: 14px;
   background: white;
   cursor: pointer;
+  color: #3498db;
 }
 
 .music-btn {
@@ -82,9 +89,9 @@ select {
 
 .ssc6-info {
   display: none;
-  background: #f0f7ff;
-  padding: 15px;
-  border-radius: 8px;
+  background: #f0f8ff;
+  padding: 20px;
+  border-radius: 15px;
   margin: 15px 0;
   border-left: 4px solid #3498db;
   line-height: 1.6;
@@ -109,9 +116,9 @@ select {
   color: #34495e;
   line-height: 1.6;
   font-size: 1.05em;
-  padding: 15px;
-  background: #f8fafc;
-  border-radius: 8px;
+  padding: 20px;
+  background: #f0f8ff;
+  border-radius: 15px;
   border-left: 4px solid #3498db;
 }
 
@@ -130,17 +137,19 @@ select {
 .ranking-item {
   display: flex;
   align-items: center;
-  padding: 12px 16px;
-  margin: 6px 0;
-  border-radius: 8px;
+  padding: 15px 20px;
+  margin: 8px 0;
+  border-radius: 15px;
   transition: all 0.3s ease;
   background: #ffffff;
-  border: 1px solid #e1e8ed;
+  border: 2px solid #e1e8ed;
+  cursor: pointer;
 }
 
 .ranking-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 12px rgba(52, 152, 219, 0.15);
+  border-color: #bde0ff;
 }
 
 .rank {
@@ -188,17 +197,17 @@ select {
 
 .rank-1 {
   background: linear-gradient(135deg, #fff9e6 0%, #fff5d6 100%);
-  border: 1px solid #ffd700;
+  border: 2px solid #ffd700;
 }
 
 .rank-2 {
   background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f5 100%);
-  border: 1px solid #ced4da;
+  border: 2px solid #ced4da;
 }
 
 .rank-3 {
   background: linear-gradient(135deg, #fff0e6 0%, #ffe8d6 100%);
-  border: 1px solid #cd7f32;
+  border: 2px solid #cd7f32;
 }
 
 .fans-change {
@@ -245,11 +254,13 @@ select {
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  padding: 24px;
-  border-radius: 12px;
+  padding: 30px;
+  border-radius: 20px;
   width: 90%;
   max-width: 700px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(52, 152, 219, 0.2);
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .close-btn {
@@ -267,6 +278,7 @@ select {
 }
 
 #modalTitle {
+  line-height: 1.4;
   color: #2c3e50;
   font-size: 1.4em;
   margin-bottom: 20px;
@@ -276,13 +288,14 @@ select {
 .competition-badge {
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(135deg, #6c5ce7 0%, #8e44ad 100%);
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
   color: white;
-  padding: 2px 8px;
-  border-radius: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
   font-size: 0.85em;
   margin-left: 8px;
   font-weight: normal;
+  box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
 }
 
 .competition-badge:before {
@@ -292,7 +305,7 @@ select {
 
 .rank-tied {
   background: linear-gradient(135deg, #e6f3ff 0%, #d1e8ff 100%);
-  border: 1px solid #3498db;
+  border: 2px solid #3498db;
 }
 
 .summary-section {
@@ -306,6 +319,77 @@ select {
   color: #2c3e50;
   font-size: 1.8em;
   margin-bottom: 20px;
+}
+
+.join-us-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.join-form {
+  background: #f8faff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #bde0ff;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.submit-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(52, 152, 219, 0.2);
+}
+
+.submission-result {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+
+.submission-result h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.chart-container {
+  margin: 30px 0;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 @media (max-width: 600px) {
@@ -332,16 +416,17 @@ select {
       <div class="view-toggle">
         <button id="followersView" class="view-btn active">追蹤數</button>
         <button id="likesView" class="view-btn">熱門曲按讚數</button>
-        <button id="ssc6View" class="view-btn">SSC6賽況</button>
+        <button id="ssc6View" class="view-btn">SSC實況</button>
         <button id="statsView" class="view-btn">統計</button>
+        <button id="joinUsView" class="view-btn">加入我們</button>
       </div>
       <select id="filterSelect">
         <option value="all">全部顯示</option>
         <option value="1k">超過1k</option>
         <option value="500">超過500</option>
         <option value="ssc6">參與SSC6</option>
-        <option value="new">New</option>
         <option value="aimac">AI music collective</option>
+        <option value="new">New</option>
       </select>
     </div>
 
@@ -368,15 +453,55 @@ select {
     </div>
     
     <ul class="ranking-list" id="rankingList">
-      <!-- JS will populate this list -->
-    </ul>
+  <!-- Here's a direct link to a song on Suno: -->
+  <a href="https://suno.com/song/04440f12-078f-434c-837e-4fac9990713d">Listen on Suno</a>
+</ul>
+
+    <div id="joinUsSection" class="join-us-section" style="display: none;">
+      <form id="joinUsForm" class="join-form">
+        <div class="form-group">
+          <label for="authorName">名稱:</label>
+          <input type="text" id="authorName" required="">
+        </div>
+        <div class="form-group">  
+          <label for="nationality">國籍:</label>
+          <input type="text" id="nationality" required="">
+        </div>
+        <div class="form-group">
+          <label for="followers">目前追蹤數:</label>
+          <input type="number" id="followers" required="">
+        </div>
+        <div class="form-group">
+          <label for="sunoLink">Suno中文歌曲連結:</label>
+          <input type="url" id="sunoLink" required="">
+        </div>
+        <button type="submit" class="submit-btn">送出</button>
+      </form>
+
+      <div id="submissionResult" class="submission-result" style="display: none;">
+        <h3>提交結果(請立即連繫discord:@gameagate636934)</h3>
+        <p>隨機條碼: <span id="randomCode"></span></p>
+        <p>作家: <span id="resultName"></span></p>
+        <p>國籍: <span id="resultNationality"></span></p>
+        <p>追蹤數: <span id="resultFollowers"></span></p>
+      </div>
+    </div>
   
     <div id="statsSection" style="display: none;">
       <div class="summary-section">
         <h2>統計總覽</h2>
-        <canvas id="summaryChart"></canvas>
-        <h2 style="margin-top: 30px;">追蹤數趨勢</h2>
-        <canvas id="followersChart"></canvas>
+        <div class="chart-container">
+          <canvas id="followersLineChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="followersBarChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="countryChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <canvas id="likesBarChart"></canvas>
+        </div>
       </div>
     </div>
 </div>
@@ -390,6 +515,11 @@ select {
 </div>
 
 <script>
+let followersLineChart = null;
+let followersBarChart = null;
+let countryChart = null;
+let likesBarChart = null;
+
 const formatNumber = (num) => {
   return num >= 1000 ? (num/1000).toFixed(1) + 'k' : num;
 };
@@ -415,12 +545,75 @@ const ssc6Status = {
   "二月": { status: "進行中" },
   "酒愛花": { status: "等待比賽" },
   "GameIsHere": { status: "等待比賽" },
-  "AIMusicMoonMan": { status: "等待比賽" },
-  "ChillVibeCircuits": { status: "已淘汰" }
+  "AIMusicMoonMan": { status: "等待比賽" }, 
+  "ChillVibeCircuits": { 
+    status: "已淘汰",
+    votes: "178票",
+    rank: "半決賽23名"
+  }
+};
+
+// Add this after the ssc6Status object
+const ssc6SongDetails = {
+  "二月": {
+    songName: "I Can't Love You Anymore",
+    songLink: "https://suno.com/song/b9c7fd1a-dabf-4e22-80ea-a2b1575458f5",
+    country: "台灣",
+    votes: "-",
+    status: "進行中"
+  },
+  "酒愛花": {
+    songName: "ice heart", 
+    songLink: "https://suno.com/song/e1615f25-6323-40e8-bcb7-48931441a300",
+    country: "台灣",
+    votes: "-",
+    status: "等待比賽"
+  },
+  "GameIsHere": {
+    songName: "Numb",
+    songLink: "https://suno.com/song/570c5beb-fcb2-4968-9d40-ee6cef6b0696", 
+    country: "台灣",
+    votes: "-",
+    status: "等待比賽"
+  },
+  "AIMusicMoonMan": {
+    songName: "ひゃっきやぎょう",
+    songLink: "https://suno.com/song/916fe5e6-af7a-482b-9bb9-8530f88eeeb6",
+    country: "台灣",
+    votes: "-",
+    status: "等待比賽"
+  },
+  "ChillVibeCircuits": {
+    songName: "恋の竖琴 (Harp of Love)",
+    songLink: "https://suno.com/song/b7906558-21ad-40fa-bc1d-057789c0ba69",
+    country: "馬來西亞",
+    votes: "178",
+    status: "已淘汰"
+  }
+};
+
+// New SSC5 data structure
+const ssc5Status = {
+  "酒愛花": { 
+    status: "已淘汰"
+  },
+  "二月": {
+    status: "已淘汰"
+  },
+  "GameIsHere": {
+    status: "已淘汰"
+  },
+  "coft": {
+    status: "已淘汰"
+  },
+  "ChillVibeCircuits": {
+    status: "已淘汰"
+  }
 };
 
 // Update the ssc6Participants array
 const ssc6Participants = ["二月", "酒愛花", "GameIsHere", "AIMusicMoonMan", "ChillVibeCircuits"];
+const ssc5Participants = ["酒愛花", "二月", "GameIsHere", "coft", "ChillVibeCircuits"];
 const aimacParticipants = ["GameIsHere", "brutus", "coft"]; // Update the aimacParticipants array
 
 const previousData = {
@@ -439,20 +632,21 @@ const previousData = {
   "brutus": Math.round(4200 * 0.6)  // Predicted previous value
 };
 
+// Updated creators array to include flag information
 const creators = [
-  { name: "brutus", fans: 4200, isNew: true },
-  { name: "nxy", fans: 3800, isNew: true },
-  { name: "Bojian", fans: 1200 },
-  { name: "二月", fans: 1000 },
-  { name: "酒愛花", fans: 1000 },
-  { name: "GameIsHere", fans: 1000 }, // Changed from 982
-  { name: "coft", fans: 599, flag: "🇭🇰" },
-  { name: "桂花巷子", fans: 435 },
-  { name: "ChillVibeCircuits", fans: 341 },
-  { name: "CYAN [青幻]", fans: 207 },
-  { name: "Maybe", fans: 127 },
-  { name: "球球", fans: 96 },
-  { name: "AIMusicMoonMan", fans: 76 }
+  { name: "brutus", fans: 4200, isNew: true, flag: "🇯🇵" },
+  { name: "nxy", fans: 3800, isNew: true, flag: "🇹🇼" }, // Added Taiwan flag
+  { name: "Bojian", fans: 1200, flag: "🇹🇼" },
+  { name: "二月", fans: 1000, flag: "🇹🇼" },
+  { name: "酒愛花", fans: 1000, flag: "🇹🇼" },
+  { name: "GameIsHere", fans: 1000, flag: "🇹🇼" },
+  { name: "coft", fans: 599, flag: "🇭🇰" }, // Changed to Hong Kong flag
+  { name: "桂花巷子", fans: 435, flag: "🇹🇼" },
+  { name: "ChillVibeCircuits", fans: 341, flag: "🇲🇾" },
+  { name: "CYAN [青幻]", fans: 207, flag: "🇨🇳" },
+  { name: "Maybe", fans: 127, flag: "🇹🇼" }, // Added Taiwan flag
+  { name: "球球", fans: 96, flag: "🇹🇼" }, // Added Taiwan flag
+  { name: "AIMusicMoonMan", fans: 76, flag: "🇹🇼" }
 ];
 
 creators.sort((a, b) => b.fans - a.fans);
@@ -478,36 +672,99 @@ function generateTrendData(currentFans, previousFans) {
   const data = [];
   const labels = [];
   const predictedData = [];
+  const averageData = [];
+  
+  // Calculate global average change
+  const allChanges = creators.map(c => {
+    const prev = previousData[c.name] || 0;
+    return {
+      start: prev,
+      end: c.fans,
+      change: c.fans - prev
+    };
+  });
+  
+  const avgChange = allChanges.reduce((sum, curr) => sum + curr.change, 0) / allChanges.length;
+  const avgStart = allChanges.reduce((sum, curr) => sum + curr.start, 0) / allChanges.length;
+  const avgEnd = allChanges.reduce((sum, curr) => sum + curr.end, 0) / allChanges.length;
   
   data.push(0);
   predictedData.push(0);
+  averageData.push(0);
   labels.push('');
   
   for(let i = 1; i < points-1; i++) {
     const progress = i / (points-1);
     const exponentialProgress = Math.pow(progress, 2);
     const estimatedFans = Math.round(previousFans * exponentialProgress);
+    const avgPoint = Math.round(avgStart + (avgChange * progress));
+    
     data.push(null);
     predictedData.push(estimatedFans);
+    averageData.push(avgPoint);
     labels.push('');
   }
   
   data.push(previousFans);
   predictedData.push(previousFans);
+  averageData.push(avgStart);
   labels.push('上月');
   
   data.push(currentFans);
   predictedData.push(currentFans);
+  averageData.push(avgEnd);
   labels.push('本月');
   
-  return { data, predictedData, labels };
+  return { data, predictedData, averageData, labels };
 }
 
 function showTrendChart(creator) {
   const modalTitle = document.getElementById('modalTitle');
-  modalTitle.textContent = `${creator.name} 粉絲成長趨勢`;
   
-  const { data, predictedData, labels } = generateTrendData(creator.fans, previousData[creator.name] || 0);
+  // Get likes info
+  const likesInfo = songLikes.find(s => s.name.toLowerCase() === creator.name.toLowerCase());
+  const likesText = likesInfo ? `熱門曲按讚數: ${formatNumber(likesInfo.likes)}` : '熱門曲按讚數: 無';
+  
+  // Get badges
+  const isSSC6 = ssc6Participants.includes(creator.name);
+  const isSSC5 = ssc5Participants.includes(creator.name);
+  const isAIMAC = aimacParticipants.includes(creator.name);
+  const badges = [
+    isSSC6 ? '<span class="competition-badge">SSC6</span>' : '',
+    isSSC5 ? '<span class="competition-badge" style="background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);">SSC5</span>' : '',
+    isAIMAC ? '<span class="competition-badge" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);">AMC(NDAI)</span>' : ''
+  ].filter(b => b).join(' ');
+
+  // Get SSC6 details if available
+  const ssc6Details = ssc6SongDetails[creator.name];
+  const ssc6Info = ssc6Details ? `
+    <div style="margin-top:15px; padding:15px; background:#f8f9fa; border-radius:8px; font-size:0.9em;">
+      <h3 style="margin:0 0 10px 0; color:#2c3e50;">SSC6 參賽資訊</h3>
+      <div><strong>歌名:</strong> ${ssc6Details.songName}</div>
+      <div><strong>連結:</strong> <a href="${ssc6Details.songLink}" target="_blank" style="color:#3498db;">聆聽歌曲</a></div>
+      <div><strong>代表國家:</strong> ${ssc6Details.country}</div>
+      <div><strong>得票數:</strong> ${ssc6Details.votes}</div>
+      <div><strong>狀態:</strong> ${ssc6Details.status}</div>
+    </div>
+  ` : '';
+
+  modalTitle.innerHTML = `
+    <div style="margin-bottom:10px">
+      ${creator.name} ${creator.flag || ''} ${badges}
+    </div>
+    <div style="font-size: 0.9em; color: #666; margin-bottom:10px">
+      ${likesText}
+    </div>
+    ${ssc6Info}
+  `;
+
+  const { data, predictedData, averageData, labels } = generateTrendData(creator.fans, previousData[creator.name] || 0);
+  
+  // Calculate global max value for y-axis
+  const globalMax = Math.max(
+    ...creators.map(c => c.fans),
+    ...Object.values(previousData)
+  );
   
   if (currentChart) {
     currentChart.destroy();
@@ -520,7 +777,7 @@ function showTrendChart(creator) {
       labels: labels,
       datasets: [
         {
-          label: '實際數據',
+          label: '實際追蹤數',
           data: data,
           borderColor: '#3498db',
           backgroundColor: 'rgba(52, 152, 219, 0.1)',
@@ -535,6 +792,15 @@ function showTrendChart(creator) {
           backgroundColor: 'rgba(52, 152, 219, 0.1)',
           fill: false,
           tension: 0.4
+        },
+        {
+          label: '全體平均',
+          data: averageData,
+          borderColor: '#e74c3c',
+          borderDash: [3, 3],
+          backgroundColor: 'transparent',
+          fill: false,
+          tension: 0.4
         }
       ]
     },
@@ -542,7 +808,18 @@ function showTrendChart(creator) {
       responsive: true,
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: true,
+          max: globalMax * 1.1, // Add 10% padding to top
+          title: {
+            display: true,
+            text: '追蹤數'
+          }
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: '追蹤數成長趨勢'
         }
       }
     }
@@ -566,10 +843,10 @@ function filterCreators(filterValue) {
         return creator.fans >= 500;
       case 'ssc6':
         return ssc6Participants.includes(creator.name);
-      case 'new':
-        return creator.isNew;
       case 'aimac':
         return aimacParticipants.includes(creator.name); 
+      case 'new':
+        return creator.isNew;
       default:
         return true;
     }
@@ -634,7 +911,7 @@ function updateList(filteredCreators) {
       </button>
     `;
     
-    li.querySelector('.creator-info').onclick = () => showTrendChart(creator);
+    li.onclick = () => showTrendChart(creator);
     rankingList.appendChild(li);
   });
 }
@@ -673,15 +950,25 @@ function updateListForLikes() {
 // New function for SSC6 status view
 function updateListForSSC6() {
   rankingList.innerHTML = '';
-  
-  // Define status groups
+
+  // SSC6 Section
+  const header6 = document.createElement('div');
+  header6.style.padding = "15px";
+  header6.style.marginBottom = "20px";
+  header6.style.borderRadius = "8px";
+  header6.style.fontSize = "1.3em";
+  header6.style.fontWeight = "bold";
+  header6.style.background = "linear-gradient(135deg, #3498db 0%, #2980b9 100%)";
+  header6.style.color = "#fff";
+  header6.textContent = "SSC6賽況";
+  rankingList.appendChild(header6);
+
   const statusGroups = {
     "進行中": [],
     "等待比賽": [],
     "已淘汰": []
   };
   
-  // Group creators by status
   creators.filter(c => ssc6Participants.includes(c.name)).forEach(creator => {
     const status = ssc6Status[creator.name]?.status;
     if (status) {
@@ -689,7 +976,6 @@ function updateListForSSC6() {
     }
   });
 
-  // Define status styles
   const statusStyles = {
     "進行中": {
       background: "linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)",
@@ -705,10 +991,9 @@ function updateListForSSC6() {
     }
   };
 
-  // Create HTML for each status group
+  // Display SSC6 groups
   Object.entries(statusGroups).forEach(([status, groupCreators]) => {
     if (groupCreators.length > 0) {
-      // Add status header
       const header = document.createElement('div');
       header.style.padding = "10px 15px";
       header.style.marginBottom = "10px";
@@ -719,19 +1004,24 @@ function updateListForSSC6() {
       header.textContent = status;
       rankingList.appendChild(header);
 
-      // Add creators in this group
       groupCreators.forEach((creator, index) => {
         const li = document.createElement('li');
         li.className = 'ranking-item';
+        
+        const creatorStatus = ssc6Status[creator.name];
+        const votingInfo = creatorStatus?.votes ? 
+          `<div style="font-size: 0.9em; color: #666;">${creatorStatus.votes} - ${creatorStatus.rank}</div>` : '';
         
         li.innerHTML = `
           <div class="rank">${index + 1}</div>
           <div class="creator-info">
             <div class="creator-name">
               ${creator.name}
+              ${creator.flag ? `<span class="flag">${creator.flag}</span>` : ''}
             </div>
             <div class="fans-count">
               ${formatNumber(creator.fans)} 追蹤
+              ${votingInfo}
             </div>
           </div>
           <button class="music-btn" onclick="showNoMusicAlert()">
@@ -743,6 +1033,53 @@ function updateListForSSC6() {
       });
     }
   });
+
+  // SSC5 Section
+  const header5 = document.createElement('div');
+  header5.style.padding = "15px";
+  header5.style.marginTop = "30px";
+  header5.style.marginBottom = "20px";
+  header5.style.borderRadius = "8px";
+  header5.style.fontSize = "1.3em";
+  header5.style.fontWeight = "bold";
+  header5.style.background = "linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%)";
+  header5.style.color = "#fff";
+  header5.textContent = "SSC5賽況 [已結束]";
+  rankingList.appendChild(header5);
+
+  // Display SSC5 participants
+  const ssc5Header = document.createElement('div');
+  ssc5Header.style.padding = "10px 15px";
+  ssc5Header.style.marginBottom = "10px";
+  ssc5Header.style.borderRadius = "8px";
+  ssc5Header.style.fontSize = "1.1em";
+  ssc5Header.style.fontWeight = "bold";
+  Object.assign(ssc5Header.style, statusStyles["已淘汰"]);
+  ssc5Header.textContent = "已淘汰";
+  rankingList.appendChild(ssc5Header);
+
+  creators.filter(c => ssc5Participants.includes(c.name)).forEach((creator, index) => {
+    const li = document.createElement('li');
+    li.className = 'ranking-item';
+    
+    li.innerHTML = `
+      <div class="rank">${index + 1}</div>
+      <div class="creator-info">
+        <div class="creator-name">
+          ${creator.name}
+          ${creator.flag ? `<span class="flag">${creator.flag}</span>` : ''}
+        </div>
+        <div class="fans-count">
+          ${formatNumber(creator.fans)} 追蹤
+        </div>
+      </div>
+      <button class="music-btn" onclick="showNoMusicAlert()">
+        <i class="fas fa-music"></i>
+      </button>
+    `;
+    
+    rankingList.appendChild(li);
+  });
 }
 
 // Event listeners for view toggle
@@ -751,10 +1088,13 @@ document.getElementById('followersView').onclick = function() {
   document.getElementById('likesView').classList.remove('active');
   document.getElementById('ssc6View').classList.remove('active');
   document.getElementById('statsView').classList.remove('active');
+  document.getElementById('joinUsView').classList.remove('active');
   currentView = 'followers';
   document.querySelector('.intro').style.display = 'block';
   document.getElementById('likesIntro').style.display = 'none';
+  document.getElementById('ssc6Info').style.display = 'none'; // Hide SSC6 info
   document.getElementById('filterSelect').style.display = 'block'; // Show filter
+  document.getElementById('joinUsSection').style.display = 'none'; // Add this
   updateList(creators);
   document.getElementById('statsSection').style.display = 'none';
   rankingList.style.display = 'block';
@@ -765,10 +1105,13 @@ document.getElementById('likesView').onclick = function() {
   document.getElementById('followersView').classList.remove('active');
   document.getElementById('ssc6View').classList.remove('active');
   document.getElementById('statsView').classList.remove('active');
+  document.getElementById('joinUsView').classList.remove('active');
   currentView = 'likes';
   document.querySelector('.intro').style.display = 'none';
   document.getElementById('likesIntro').style.display = 'block';
+  document.getElementById('ssc6Info').style.display = 'none'; // Hide SSC6 info
   document.getElementById('filterSelect').style.display = 'none'; // Hide filter
+  document.getElementById('joinUsSection').style.display = 'none'; // Add this
   updateListForLikes();
   document.getElementById('statsSection').style.display = 'none';
   rankingList.style.display = 'block';
@@ -779,10 +1122,13 @@ document.getElementById('ssc6View').onclick = function() {
   document.getElementById('followersView').classList.remove('active');
   document.getElementById('likesView').classList.remove('active');
   document.getElementById('statsView').classList.remove('active');
+  document.getElementById('joinUsView').classList.remove('active');
   currentView = 'ssc6';
   document.querySelector('.intro').style.display = 'none';
   document.getElementById('likesIntro').style.display = 'none';
   document.getElementById('filterSelect').style.display = 'none'; // Hide filter
+  document.getElementById('ssc6Info').style.display = 'block'; // Show SSC6 info
+  document.getElementById('joinUsSection').style.display = 'none'; // Add this
   updateListForSSC6();
   document.getElementById('statsSection').style.display = 'none';
   rankingList.style.display = 'block';
@@ -793,16 +1139,58 @@ document.getElementById('statsView').onclick = function() {
   document.getElementById('followersView').classList.remove('active');
   document.getElementById('likesView').classList.remove('active');
   document.getElementById('ssc6View').classList.remove('active');
+  document.getElementById('joinUsView').classList.remove('active');
   currentView = 'stats';
   
   // Hide other views
   document.querySelector('.intro').style.display = 'none';
   document.getElementById('likesIntro').style.display = 'none';
+  document.getElementById('ssc6Info').style.display = 'none'; // Hide SSC6 info
   document.getElementById('filterSelect').style.display = 'none';
-  rankingList.style.display = 'none';
+  document.getElementById('rankingList').style.display = 'none';
+  document.getElementById('joinUsSection').style.display = 'none'; // Add this
   
-  // Show stats section
+  // Show and initialize stats section
   document.getElementById('statsSection').style.display = 'block';
+  createFollowersLineChart();
+  createFollowersBarChart();
+  createCountryDistributionChart();
+  createSongLikesChart();
+};
+
+document.getElementById('joinUsView').onclick = function() {
+  this.classList.add('active');
+  document.getElementById('followersView').classList.remove('active');
+  document.getElementById('likesView').classList.remove('active');
+  document.getElementById('ssc6View').classList.remove('active');
+  document.getElementById('statsView').classList.remove('active');
+  
+  // Hide other sections
+  document.querySelector('.intro').style.display = 'none';
+  document.getElementById('likesIntro').style.display = 'none';
+  document.getElementById('ssc6Info').style.display = 'none';
+  document.getElementById('filterSelect').style.display = 'none';
+  document.getElementById('rankingList').style.display = 'none';
+  document.getElementById('statsSection').style.display = 'none';
+  
+  // Show join us section
+  document.getElementById('joinUsSection').style.display = 'block';
+};
+
+document.getElementById('joinUsForm').onsubmit = function(e) {
+  e.preventDefault();
+  
+  const randomCode = Math.random().toString(36).substring(2, 10).toUpperCase();
+  
+  document.getElementById('randomCode').textContent = randomCode;
+  document.getElementById('resultName').textContent = document.getElementById('authorName').value;
+  document.getElementById('resultNationality').textContent = document.getElementById('nationality').value;
+  document.getElementById('resultFollowers').textContent = document.getElementById('followers').value;
+  
+  document.getElementById('submissionResult').style.display = 'block';
+  
+  // Optional: Clear form
+  this.reset();
 };
 
 // Modify the filter select event listener
@@ -815,73 +1203,20 @@ document.getElementById('filterSelect').addEventListener('change', (e) => {
   }
 });
 
-// Summary chart
-function createSummaryChart() {
-  const ctx = document.getElementById('summaryChart').getContext('2d');
-  
-  // Calculate statistics
-  const totalCreators = creators.length;
-  const over1k = creators.filter(c => c.fans >= 1000).length;
-  const between500and1k = creators.filter(c => c.fans >= 500 && c.fans < 1000).length;
-  const under500 = creators.filter(c => c.fans < 500).length;
-  const ssc6Count = ssc6Participants.length;
-  const aimacCount = aimacParticipants.length;
-  const newCount = creators.filter(c => c.isNew).length;
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['總創作者', '1k+粉絲', '500-1k粉絲', '500以下', 'SSC6參賽者', 'AMC成員', '新進創作者'],
-      datasets: [{
-        data: [totalCreators, over1k, between500and1k, under500, ssc6Count, aimacCount, newCount],
-        backgroundColor: [
-          '#3498db',
-          '#2ecc71',
-          '#f1c40f',
-          '#e74c3c',
-          '#9b59b6',
-          '#1abc9c',
-          '#e67e22'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          display: false
-        },
-        title: {
-          display: false
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            stepSize: 1
-          }
-        }
-      }
-    }
-  });
-}
-
-// Add this function after createSummaryChart()
-function createFollowersChart() {
-  const ctx = document.getElementById('followersChart').getContext('2d');
-  
-  // Create datasets for each creator
+// Update the createFollowersLineChart function to destroy existing chart
+function createFollowersLineChart() {
+  if (followersLineChart) {
+    followersLineChart.destroy();
+  }
+  const ctx = document.getElementById('followersLineChart').getContext('2d');
   const datasets = creators.map(creator => ({
     label: creator.name,
     data: [previousData[creator.name] || 0, creator.fans],
     borderColor: `hsl(${Math.random() * 360}, 70%, 50%)`,
-    tension: 0.4,
-    fill: false
+    tension: 0.4
   }));
 
-  new Chart(ctx, {
+  followersLineChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: ['上月', '本月'],
@@ -890,20 +1225,108 @@ function createFollowersChart() {
     options: {
       responsive: true,
       plugins: {
-        legend: {
-          position: 'right',
-          labels: {
-            boxWidth: 12
-          }
+        title: {
+          display: true,
+          text: '追蹤數變化趨勢'
         }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          title: {
-            display: true,
-            text: '追蹤數'
-          }
+      }
+    }
+  });
+}
+
+// Update the createFollowersBarChart function
+function createFollowersBarChart() {
+  if (followersBarChart) {
+    followersBarChart.destroy();
+  }
+  const ctx = document.getElementById('followersBarChart').getContext('2d');
+  const sortedCreators = [...creators].sort((a, b) => b.fans - a.fans);
+  
+  followersBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: sortedCreators.map(c => c.name),
+      datasets: [{
+        label: '追蹤數',
+        data: sortedCreators.map(c => c.fans),
+        backgroundColor: '#3498db'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: '追蹤數分布'
+        }
+      }
+    }
+  });
+}
+
+// Update the createCountryDistributionChart function
+function createCountryDistributionChart() {
+  if (countryChart) {
+    countryChart.destroy();
+  }
+  const ctx = document.getElementById('countryChart').getContext('2d');
+  const countryCount = {};
+  
+  creators.forEach(creator => {
+    if (creator.flag) {
+      const country = creator.flag === '🇹🇼' ? '台灣' :
+                     creator.flag === '🇯🇵' ? '日本' :
+                     creator.flag === '🇲🇾' ? '馬來西亞' :
+                     creator.flag === '🇨🇳' ? '中國' : '其他';
+      countryCount[country] = (countryCount[country] || 0) + 1;
+    }
+  });
+
+  countryChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: Object.keys(countryCount),
+      datasets: [{
+        data: Object.values(countryCount),
+        backgroundColor: ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f', '#9b59b6']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: '創作者國籍分布'
+        }
+      }
+    }
+  });
+}
+
+// Update the createSongLikesChart function
+function createSongLikesChart() {
+  if (likesBarChart) {
+    likesBarChart.destroy();
+  }
+  const ctx = document.getElementById('likesBarChart').getContext('2d');
+  const sortedLikes = [...songLikes].sort((a, b) => b.likes - a.likes);
+
+  likesBarChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: sortedLikes.map(s => s.name),
+      datasets: [{
+        label: '按讚數',
+        data: sortedLikes.map(s => s.likes),
+        backgroundColor: '#2ecc71'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: '熱門曲目按讚數'
         }
       }
     }
@@ -912,8 +1335,6 @@ function createFollowersChart() {
 
 // Call the function after initial load
 updateList(creators);
-createSummaryChart();
-createFollowersChart();
 </script>
 
 </body></html>
