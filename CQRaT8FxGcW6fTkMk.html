@@ -510,6 +510,7 @@ select {
     <div class="modal-content">
       <span class="close-btn">×</span>
       <h2 id="modalTitle">nyx</h2>
+      <div></div>
       <canvas id="trendChart"></canvas>
     </div>
 </div>
@@ -532,7 +533,7 @@ function showNoMusicAlert() {
 // Populating song likes data structure
 const songLikes = [
   { name: "brutus", song: "under the moon", likes: 2900 },
-  { name: "nxy", song: "離れる", likes: 763 },
+  { name: "nyx", song: "離れる", likes: 763 },
   { name: "Bojian", song: "無法救贖", likes: 487 },
   { name: "二月", song: "醉舞江湖", likes: 352 },
   { name: "酒愛花", song: "I am separated from the world✨", likes: 676 },
@@ -540,12 +541,16 @@ const songLikes = [
   { name: "coft", song: "Unknown (feat. TongMick)", likes: 391 }
 ];
 
-// New SSC6 status data structure
+// Updated SSC6 status data structure
 const ssc6Status = {
-  "二月": { status: "進行中" },
+  "二月": { 
+    status: "已淘汰",
+    votes: "169票",
+    rank: "半決賽17名"
+  },
   "酒愛花": { status: "等待比賽" },
   "GameIsHere": { status: "等待比賽" },
-  "AIMusicMoonMan": { status: "等待比賽" }, 
+  "AIMusicMoonMan": { status: "進行中" }, // Changed from "等待比賽" to "進行中"
   "ChillVibeCircuits": { 
     status: "已淘汰",
     votes: "178票",
@@ -559,8 +564,8 @@ const ssc6SongDetails = {
     songName: "I Can't Love You Anymore",
     songLink: "https://suno.com/song/b9c7fd1a-dabf-4e22-80ea-a2b1575458f5",
     country: "台灣",
-    votes: "-",
-    status: "進行中"
+    votes: "169",
+    status: "已淘汰"
   },
   "酒愛花": {
     songName: "ice heart", 
@@ -581,7 +586,7 @@ const ssc6SongDetails = {
     songLink: "https://suno.com/song/916fe5e6-af7a-482b-9bb9-8530f88eeeb6",
     country: "台灣",
     votes: "-",
-    status: "等待比賽"
+    status: "進行中"
   },
   "ChillVibeCircuits": {
     songName: "恋の竖琴 (Harp of Love)",
@@ -628,19 +633,18 @@ const previousData = {
   "Maybe": 56,
   "Bojian": 70,
   "AIMusicMoonMan": 40,
-  "nxy": Math.round(3800 * 0.6),  // Predicted previous value
-  "brutus": Math.round(4200 * 0.6)  // Predicted previous value
+  "nyx": Math.round(3800 * 0.6)
 };
 
 // Updated creators array to include flag information
 const creators = [
   { name: "brutus", fans: 4200, isNew: true, flag: "🇯🇵" },
-  { name: "nxy", fans: 3800, isNew: true, flag: "🇹🇼" }, // Added Taiwan flag
+  { name: "nyx", fans: 3800, isNew: true, flag: "🇹🇼" },
   { name: "Bojian", fans: 1200, flag: "🇹🇼" },
   { name: "二月", fans: 1000, flag: "🇹🇼" },
   { name: "酒愛花", fans: 1000, flag: "🇹🇼" },
   { name: "GameIsHere", fans: 1000, flag: "🇹🇼" },
-  { name: "coft", fans: 599, flag: "🇭🇰" }, // Changed to Hong Kong flag
+  { name: "coft", fans: 703, flag: "🇭🇰" }, // Updated from 599 to 703
   { name: "桂花巷子", fans: 435, flag: "🇹🇼" },
   { name: "ChillVibeCircuits", fans: 341, flag: "🇲🇾" },
   { name: "CYAN [青幻]", fans: 207, flag: "🇨🇳" },
@@ -667,7 +671,7 @@ window.onclick = (event) => {
   }
 };
 
-function generateTrendData(currentFans, previousFans) {
+function generateTrendData(currentFans, previousFans, maxValue = null) {
   const points = 6;
   const data = [];
   const labels = [];
@@ -715,11 +719,34 @@ function generateTrendData(currentFans, previousFans) {
   averageData.push(avgEnd);
   labels.push('本月');
   
-  return { data, predictedData, averageData, labels };
+  return { 
+    data, 
+    predictedData, 
+    averageData, 
+    labels,
+    maxValue: maxValue || Math.max(currentFans, previousFans) * 1.1
+  };
 }
 
 function showTrendChart(creator) {
   const modalTitle = document.getElementById('modalTitle');
+  
+  // Remove any existing scale toggle button first
+  const existingToggle = document.getElementById('scaleToggle');
+  if (existingToggle) {
+    existingToggle.remove();
+  }
+  
+  // Add a single scale toggle button
+  const scaleToggle = document.createElement('button');
+  scaleToggle.id = 'scaleToggle';
+  scaleToggle.className = 'view-btn';
+  scaleToggle.style.fontSize = '0.8em';
+  scaleToggle.style.marginTop = '10px';
+  scaleToggle.style.marginBottom = '10px';
+  scaleToggle.textContent = '切換Y軸比例';
+  
+  modalTitle.insertAdjacentElement('afterend', scaleToggle);
   
   // Get likes info
   const likesInfo = songLikes.find(s => s.name.toLowerCase() === creator.name.toLowerCase());
@@ -758,7 +785,10 @@ function showTrendChart(creator) {
     ${ssc6Info}
   `;
 
-  const { data, predictedData, averageData, labels } = generateTrendData(creator.fans, previousData[creator.name] || 0);
+  const { data, predictedData, averageData, labels, maxValue } = generateTrendData(
+    creator.fans, 
+    previousData[creator.name] || 0
+  );
   
   // Calculate global max value for y-axis
   const globalMax = Math.max(
@@ -809,7 +839,7 @@ function showTrendChart(creator) {
       scales: {
         y: {
           beginAtZero: true,
-          max: globalMax * 1.1, // Add 10% padding to top
+          max: maxValue, // Set max value for y-axis
           title: {
             display: true,
             text: '追蹤數'
@@ -825,6 +855,18 @@ function showTrendChart(creator) {
     }
   });
   
+  // Simplified toggle handler
+  let isGlobalScale = false;
+  scaleToggle.onclick = function() {
+    isGlobalScale = !isGlobalScale;
+
+    // Update chart
+    currentChart.options.scales.y.max = isGlobalScale ? 
+      globalMax * 1.1 : 
+      Math.max(creator.fans, previousData[creator.name] || 0) * 1.1;
+    currentChart.update();
+  };
+
   modal.style.display = 'block';
 }
 
@@ -964,7 +1006,7 @@ function updateListForSSC6() {
   rankingList.appendChild(header6);
 
   const statusGroups = {
-    "進行中": [],
+    "進行中": [], // Make sure this exists
     "等待比賽": [],
     "已淘汰": []
   };
@@ -986,8 +1028,8 @@ function updateListForSSC6() {
       color: "#fff"
     },
     "已淘汰": {
-      background: "linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%)",
-      color: "#fff"
+      background: "linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);",
+      color: "#000"  // Changed from "#fff" to "#000"
     }
   };
 
