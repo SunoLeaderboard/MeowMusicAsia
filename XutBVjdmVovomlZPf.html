@@ -303,6 +303,10 @@ select {
   margin-right: 4px;
 }
 
+.competition-badge[style*="e67e22"]:before {
+  content: "👑";
+}
+
 .rank-tied {
   background: linear-gradient(135deg, #e6f3ff 0%, #d1e8ff 100%);
   border: 2px solid #3498db;
@@ -426,6 +430,7 @@ select {
         <option value="500">超過500</option>
         <option value="ssc6">參與SSC6</option>
         <option value="aimac">AI music collective</option>
+        <option value="sunoversity">Sunoversity</option>
         <option value="new">New</option>
       </select>
     </div>
@@ -444,17 +449,32 @@ select {
 
     <div class="intro">
       目前，人工智慧（AI）技術在音樂創作領域的應用日益成熟，全球各地的音樂家和創作者正積極探索AI音樂生成工具的潛力。以下是目前排名：
-      <div class="update-info">（24/11/16更新）</div>
+      <div class="update-info">（24/11/19更新）</div>
     </div>
     
     <div class="intro" id="likesIntro" style="display: none;">
       熱門歌曲在中文AI音樂社區中掀起浪潮，每個音符都成為創作者交流的橋梁。無論是情感抒發還是技術突破，中文AI音樂社區讓創意在音樂世界無限廣大。
-      <div class="update-info">（24/11/16更新）</div>
+      <div class="update-info">（24/11/19更新）</div>
     </div>
     
     <ul class="ranking-list" id="rankingList">
-  <!-- Here's a direct link to a song on Suno: -->
-  <a href="https://suno.com/song/04440f12-078f-434c-837e-4fac9990713d">Listen on Suno</a>
+<li class="ranking-item rank-1">
+  <div class="rank">1</div>
+  <div class="creator-info">
+    <div class="creator-name">
+      brutus
+      <span class="flag">🇯🇵</span>
+      <span class="competition-badge" style="background: linear-gradient(180deg, #2ecc71 0%, #27ae60 100%);">AMC(NDAI)</span>
+    </div>
+    <div class="fans-count">
+      4.3k
+      <span class="fans-change increase"><span class="change-arrow">↑</span>100</span>
+    </div>
+  </div>
+  <button class="music-btn" onclick="showNoMusicAlert()">
+    <i class="fas fa-music"></i>
+  </button>
+</li>
 </ul>
 
     <div id="joinUsSection" class="join-us-section" style="display: none;">
@@ -521,6 +541,14 @@ let followersBarChart = null;
 let countryChart = null;
 let likesBarChart = null;
 
+// Add sunoversity participants array
+const sunoversityParticipants = ["coft", "Novia"];
+
+// Add ssc6Participants, aimacParticipants, and ssc5Participants arrays
+const ssc6Participants = ["二月", "酒愛花", "GameIsHere", "AIMusicMoonMan", "ChillVibeCircuits"];
+const aimacParticipants = ["brutus", "GameIsHere", "coft"];
+const ssc5Participants = ["酒愛花", "二月", "GameIsHere", "coft", "ChillVibeCircuits"];
+
 const formatNumber = (num) => {
   return num >= 1000 ? (num/1000).toFixed(1) + 'k' : num;
 };
@@ -571,7 +599,7 @@ const ssc6SongDetails = {
     songName: "ice heart", 
     songLink: "https://suno.com/song/e1615f25-6323-40e8-bcb7-48931441a300",
     country: "台灣",
-    votes: "-",
+    votes: "-", 
     status: "等待比賽"
   },
   "GameIsHere": {
@@ -616,12 +644,28 @@ const ssc5Status = {
   }
 };
 
-// Update the ssc6Participants array
-const ssc6Participants = ["二月", "酒愛花", "GameIsHere", "AIMusicMoonMan", "ChillVibeCircuits"];
-const ssc5Participants = ["酒愛花", "二月", "GameIsHere", "coft", "ChillVibeCircuits"];
-const aimacParticipants = ["GameIsHere", "brutus", "coft"]; // Update the aimacParticipants array
-
+// Update the previousData object for Bojian value
 const previousData = {
+  "GameIsHere": 982,
+  "二月": 1000,
+  "酒愛花": 1000,
+  "ChillVibeCircuits": 341,
+  "CYAN [青幻]": 207,
+  "桂花巷子": 435,
+  "coft": 599,
+  "球球": 96,
+  "Maybe": 127,
+  "AIMusicMoonMan": 76,
+  "brutus": 4200,
+  "nyx": 3800,
+  "senchago": 142,
+  "豬羊": 107,
+  "Novia": 50,
+  "Bojian": 1200  // Changed from "1.2k" to 1200
+};
+
+// Add oct30Data object
+const oct30Data = {
   "GameIsHere": 804,
   "二月": 732,
   "酒愛花": 710,
@@ -632,25 +676,33 @@ const previousData = {
   "球球": 72,
   "Maybe": 56,
   "Bojian": 70,
-  "AIMusicMoonMan": 40,
-  "nyx": Math.round(3800 * 0.6)
+  "AIMusicMoonMan": 4,
+  // Predicted values for others using exponential growth
+  "brutus": 3800,
+  "nyx": 3400,
+  "senchago": 120,
+  "豬羊": 80,
+  "Novia": 30
 };
 
-// Updated creators array to include flag information
+// Update the creators array to include flag information
 const creators = [
-  { name: "brutus", fans: 4200, isNew: true, flag: "🇯🇵" },
-  { name: "nyx", fans: 3800, isNew: true, flag: "🇹🇼" },
-  { name: "Bojian", fans: 1200, flag: "🇹🇼" },
-  { name: "二月", fans: 1000, flag: "🇹🇼" },
-  { name: "酒愛花", fans: 1000, flag: "🇹🇼" },
-  { name: "GameIsHere", fans: 1000, flag: "🇹🇼" },
-  { name: "coft", fans: 703, flag: "🇭🇰" }, // Updated from 599 to 703
-  { name: "桂花巷子", fans: 435, flag: "🇹🇼" },
-  { name: "ChillVibeCircuits", fans: 341, flag: "🇲🇾" },
-  { name: "CYAN [青幻]", fans: 207, flag: "🇨🇳" },
-  { name: "Maybe", fans: 127, flag: "🇹🇼" }, // Added Taiwan flag
-  { name: "球球", fans: 96, flag: "🇹🇼" }, // Added Taiwan flag
-  { name: "AIMusicMoonMan", fans: 76, flag: "🇹🇼" }
+  { name: "brutus", fans: 4300, flag: "🇯🇵" },
+  { name: "nyx", fans: 4200, flag: "🇹🇼" },
+  { name: "Bojian", fans: 1500, flag: "🇹🇼" },
+  { name: "二月", fans: 1100, flag: "🇹🇼" },
+  { name: "酒愛花", fans: 1100, flag: "🇹🇼" },
+  { name: "GameIsHere", fans: 1100, flag: "🇹🇼" },
+  { name: "coft", fans: 808, flag: "🇭🇰" },
+  { name: "桂花巷子", fans: 459, flag: "🇹🇼" },
+  { name: "ChillVibeCircuits", fans: 385, flag: "🇲🇾" },
+  { name: "CYAN [青幻]", fans: 209, flag: "🇨🇳" },
+  { name: "Maybe", fans: 130, flag: "🇹🇼" },
+  { name: "senchago", fans: 142, flag: "🇹🇼", isNew: true },
+  { name: "豬羊", fans: 107, flag: "🇹🇼", isNew: true },
+  { name: "球球", fans: 106, flag: "🇹🇼" },
+  { name: "AIMusicMoonMan", fans: 92, flag: "🇹🇼" },
+  { name: "Novia", fans: 50, flag: "🇹🇼", isNew: true }
 ];
 
 creators.sort((a, b) => b.fans - a.fans);
@@ -671,7 +723,7 @@ window.onclick = (event) => {
   }
 };
 
-function generateTrendData(currentFans, previousFans, maxValue = null) {
+function generateTrendData(creator, currentFans, previousFans, maxValue = null) {
   const points = 6;
   const data = [];
   const labels = [];
@@ -709,15 +761,20 @@ function generateTrendData(currentFans, previousFans, maxValue = null) {
     labels.push('');
   }
   
-  data.push(previousFans);
-  predictedData.push(previousFans);
+  data.push(oct30Data[creator.name] || 0);
+  predictedData.push(oct30Data[creator.name] || 0);
   averageData.push(avgStart);
-  labels.push('上月');
+  labels.push('10/30');
+  
+  data.push(previousData[creator.name] || 0);
+  predictedData.push(previousData[creator.name] || 0);
+  averageData.push(avgStart + avgChange/2);
+  labels.push('11/16');
   
   data.push(currentFans);
   predictedData.push(currentFans);
   averageData.push(avgEnd);
-  labels.push('本月');
+  labels.push('11/19');
   
   return { 
     data, 
@@ -756,10 +813,12 @@ function showTrendChart(creator) {
   const isSSC6 = ssc6Participants.includes(creator.name);
   const isSSC5 = ssc5Participants.includes(creator.name);
   const isAIMAC = aimacParticipants.includes(creator.name);
+  const isSunoversity = sunoversityParticipants.includes(creator.name);
   const badges = [
     isSSC6 ? '<span class="competition-badge">SSC6</span>' : '',
     isSSC5 ? '<span class="competition-badge" style="background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);">SSC5</span>' : '',
-    isAIMAC ? '<span class="competition-badge" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);">AMC(NDAI)</span>' : ''
+    isAIMAC ? '<span class="competition-badge" style="background: linear-gradient(180deg, #2ecc71 0%, #27ae60 100%);">AMC(NDAI)</span>' : '',
+    isSunoversity ? '<span class="competition-badge" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);">Sunoversity</span>' : ''
   ].filter(b => b).join(' ');
 
   // Get SSC6 details if available
@@ -786,6 +845,7 @@ function showTrendChart(creator) {
   `;
 
   const { data, predictedData, averageData, labels, maxValue } = generateTrendData(
+    creator,
     creator.fans, 
     previousData[creator.name] || 0
   );
@@ -887,6 +947,8 @@ function filterCreators(filterValue) {
         return ssc6Participants.includes(creator.name);
       case 'aimac':
         return aimacParticipants.includes(creator.name); 
+      case 'sunoversity':
+        return sunoversityParticipants.includes(creator.name);
       case 'new':
         return creator.isNew;
       default:
@@ -930,9 +992,11 @@ function updateList(filteredCreators) {
     
     const isSSC6Participant = ssc6Participants.includes(creator.name);
     const isAIMACMember = aimacParticipants.includes(creator.name);
+    const isSunoversity = sunoversityParticipants.includes(creator.name);
     
     const ssc6Badge = isSSC6Participant ? `<span class="competition-badge">SSC6</span>` : '';
-    const aimacBadge = isAIMACMember ? `<span class="competition-badge" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);">AMC(NDAI)</span>` : '';
+    const aimacBadge = isAIMACMember ? `<span class="competition-badge" style="background: linear-gradient(180deg, #2ecc71 0%, #27ae60 100%);">AMC(NDAI)</span>` : '';
+    const sunoversityBadge = isSunoversity ? `<span class="competition-badge" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);">Sunoversity</span>` : '';
 
     li.innerHTML = `
       <div class="rank">${displayRank}</div>
@@ -942,6 +1006,7 @@ function updateList(filteredCreators) {
           ${creator.flag ? `<span class="flag">${creator.flag}</span>` : ''}
           ${ssc6Badge}
           ${aimacBadge}
+          ${sunoversityBadge}
         </div>
         <div class="fans-count">
           ${formatNumber(creator.fans)}
@@ -1182,7 +1247,6 @@ document.getElementById('statsView').onclick = function() {
   document.getElementById('likesView').classList.remove('active');
   document.getElementById('ssc6View').classList.remove('active');
   document.getElementById('joinUsView').classList.remove('active');
-  currentView = 'stats';
   
   // Hide other views
   document.querySelector('.intro').style.display = 'none';
@@ -1190,7 +1254,7 @@ document.getElementById('statsView').onclick = function() {
   document.getElementById('ssc6Info').style.display = 'none'; // Hide SSC6 info
   document.getElementById('filterSelect').style.display = 'none';
   document.getElementById('rankingList').style.display = 'none';
-  document.getElementById('joinUsSection').style.display = 'none'; // Add this
+  document.getElementById('joinUsSection').style.display = 'none';
   
   // Show and initialize stats section
   document.getElementById('statsSection').style.display = 'block';
@@ -1253,7 +1317,11 @@ function createFollowersLineChart() {
   const ctx = document.getElementById('followersLineChart').getContext('2d');
   const datasets = creators.map(creator => ({
     label: creator.name,
-    data: [previousData[creator.name] || 0, creator.fans],
+    data: [
+      oct30Data[creator.name] || 0,
+      previousData[creator.name] || 0, 
+      creator.fans
+    ],
     borderColor: `hsl(${Math.random() * 360}, 70%, 50%)`,
     tension: 0.4
   }));
@@ -1261,7 +1329,7 @@ function createFollowersLineChart() {
   followersLineChart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ['上月', '本月'],
+      labels: ['10/30', '11/16', '11/19'],
       datasets: datasets
     },
     options: {
