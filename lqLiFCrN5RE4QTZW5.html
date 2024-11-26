@@ -449,7 +449,7 @@ select {
 
     <div class="intro">
       目前，人工智慧（AI）技術在音樂創作領域的應用日益成熟，全球各地的音樂家和創作者正積極探索AI音樂生成工具的潛力。以下是目前排名：
-      <div class="update-info">（24/11/19更新）</div>
+      <div class="update-info">（24/11/24更新）</div>
     </div>
     
     <div class="intro" id="likesIntro" style="display: none;">
@@ -509,7 +509,7 @@ select {
   
     <div id="statsSection" style="display: none;">
       <div class="summary-section">
-        <h2>統計總覽</h2>
+        <h2>(維修中)</h2>
         <div class="chart-container">
           <canvas id="followersLineChart"></canvas>
         </div>
@@ -576,9 +576,13 @@ const ssc6Status = {
     votes: "169票",
     rank: "半決賽17名"
   },
-  "酒愛花": { status: "等待比賽" },
+  "酒愛花": { status: "進行中" }, // Changed from "等待比賽" to "進行中"
   "GameIsHere": { status: "等待比賽" },
-  "AIMusicMoonMan": { status: "進行中" }, // Changed from "等待比賽" to "進行中"
+  "AIMusicMoonMan": { 
+    status: "已淘汰",
+    votes: "173票", 
+    rank: "半決賽11名(超厲害!!)"
+  },
   "ChillVibeCircuits": { 
     status: "已淘汰",
     votes: "178票",
@@ -600,7 +604,7 @@ const ssc6SongDetails = {
     songLink: "https://suno.com/song/e1615f25-6323-40e8-bcb7-48931441a300",
     country: "台灣",
     votes: "-", 
-    status: "等待比賽"
+    status: "進行中" // Updated status
   },
   "GameIsHere": {
     songName: "Numb",
@@ -613,8 +617,8 @@ const ssc6SongDetails = {
     songName: "ひゃっきやぎょう",
     songLink: "https://suno.com/song/916fe5e6-af7a-482b-9bb9-8530f88eeeb6",
     country: "台灣",
-    votes: "-",
-    status: "進行中"
+    votes: "173",
+    status: "已淘汰"
   },
   "ChillVibeCircuits": {
     songName: "恋の竖琴 (Harp of Love)",
@@ -685,24 +689,24 @@ const oct30Data = {
   "Novia": 30
 };
 
-// Update the creators array to include flag information
+// Update the creators array to include new values
 const creators = [
-  { name: "brutus", fans: 4300, flag: "🇯🇵" },
+  { name: "brutus", fans: 4400, flag: "🇯🇵" },
   { name: "nyx", fans: 4200, flag: "🇹🇼" },
-  { name: "Bojian", fans: 1500, flag: "🇹🇼" },
-  { name: "二月", fans: 1100, flag: "🇹🇼" },
+  { name: "Bojian", fans: 1900, flag: "🇹🇼" },
+  { name: "GameIsHere", fans: 1200, flag: "🇹🇼" },
+  { name: "二月", fans: 1200, flag: "🇹🇼" },
   { name: "酒愛花", fans: 1100, flag: "🇹🇼" },
-  { name: "GameIsHere", fans: 1100, flag: "🇹🇼" },
-  { name: "coft", fans: 808, flag: "🇭🇰" },
-  { name: "桂花巷子", fans: 459, flag: "🇹🇼" },
-  { name: "ChillVibeCircuits", fans: 385, flag: "🇲🇾" },
+  { name: "coft", fans: 1000, flag: "🇭🇰" },
+  { name: "桂花巷子", fans: 471, flag: "🇹🇼" },
+  { name: "ChillVibeCircuits", fans: 398, flag: "🇲🇾" },
   { name: "CYAN [青幻]", fans: 209, flag: "🇨🇳" },
-  { name: "Maybe", fans: 130, flag: "🇹🇼" },
-  { name: "senchago", fans: 142, flag: "🇹🇼", isNew: true },
-  { name: "豬羊", fans: 107, flag: "🇹🇼", isNew: true },
-  { name: "球球", fans: 106, flag: "🇹🇼" },
-  { name: "AIMusicMoonMan", fans: 92, flag: "🇹🇼" },
-  { name: "Novia", fans: 50, flag: "🇹🇼", isNew: true }
+  { name: "senchago", fans: 175, flag: "🇹🇼", isNew: true },
+  { name: "Maybe", fans: 142, flag: "🇹🇼" },
+  { name: "豬羊", fans: 124, flag: "🇹🇼", isNew: true },
+  { name: "球球", fans: 124, flag: "🇹🇼" },
+  { name: "AIMusicMoonMan", fans: 103, flag: "🇹🇼" },
+  { name: "Novia", fans: 51, flag: "🇹🇼", isNew: true }
 ];
 
 creators.sort((a, b) => b.fans - a.fans);
@@ -724,64 +728,70 @@ window.onclick = (event) => {
 };
 
 function generateTrendData(creator, currentFans, previousFans, maxValue = null) {
-  const points = 6;
+  const points = 7; // Increased from 6 to accommodate new data point
   const data = [];
   const labels = [];
   const predictedData = [];
   const averageData = [];
-  
-  // Calculate global average change
-  const allChanges = creators.map(c => {
-    const prev = previousData[c.name] || 0;
+
+  // Calculate global average trend points for 4 time periods
+  const allCreators = creators.map(c => {
+    const oct30Value = oct30Data[c.name] || 0;
+    const nov16Value = previousData[c.name] || 0; 
+    const nov24Value = c.fans;
+
     return {
-      start: prev,
-      end: c.fans,
-      change: c.fans - prev
+      oct30: oct30Value,
+      nov16: nov16Value,
+      nov24: nov24Value,
     };
   });
-  
-  const avgChange = allChanges.reduce((sum, curr) => sum + curr.change, 0) / allChanges.length;
-  const avgStart = allChanges.reduce((sum, curr) => sum + curr.start, 0) / allChanges.length;
-  const avgEnd = allChanges.reduce((sum, curr) => sum + curr.end, 0) / allChanges.length;
-  
+
+  // Calculate averages for each time period 
+  const avgOct30 = allCreators.reduce((sum, c) => sum + c.oct30, 0) / allCreators.length;
+  const avgNov16 = allCreators.reduce((sum, c) => sum + c.nov16, 0) / allCreators.length;
+  const avgNov24 = allCreators.reduce((sum, c) => sum + c.nov24, 0) / allCreators.length;
+
   data.push(0);
   predictedData.push(0);
   averageData.push(0);
   labels.push('');
-  
+
+  // Fill in predicted points
   for(let i = 1; i < points-1; i++) {
     const progress = i / (points-1);
     const exponentialProgress = Math.pow(progress, 2);
     const estimatedFans = Math.round(previousFans * exponentialProgress);
-    const avgPoint = Math.round(avgStart + (avgChange * progress));
+    const avgPoint = Math.round(avgOct30 + ((avgNov24 - avgOct30) * progress));
     
     data.push(null);
     predictedData.push(estimatedFans);
     averageData.push(avgPoint);
     labels.push('');
   }
-  
+
+  // Update to only include 3 dates (removed 11/19)
   data.push(oct30Data[creator.name] || 0);
   predictedData.push(oct30Data[creator.name] || 0);
-  averageData.push(avgStart);
+  averageData.push(avgOct30);
   labels.push('10/30');
-  
+
   data.push(previousData[creator.name] || 0);
   predictedData.push(previousData[creator.name] || 0);
-  averageData.push(avgStart + avgChange/2);
+  averageData.push(avgNov16);
   labels.push('11/16');
-  
-  data.push(currentFans);
-  predictedData.push(currentFans);
-  averageData.push(avgEnd);
-  labels.push('11/19');
-  
-  return { 
-    data, 
-    predictedData, 
-    averageData, 
+
+  data.push(creator.fans);
+  predictedData.push(creator.fans);
+  averageData.push(avgNov24);
+  labels.push('11/24');
+
+  return {
+    data,
+    predictedData,
+    averageData,
     labels,
-    maxValue: maxValue || Math.max(currentFans, previousFans) * 1.1
+    maxValue: maxValue || Math.max(currentFans, previousFans, creator.fans) * 1.1
   };
 }
 
@@ -969,12 +979,9 @@ function updateList(filteredCreators) {
       rankClass = `rank-${index + 1}`;
     }
     
-    // Handle tied ranks for fans === 1000
-    if (creator.fans === 1000) {
-      rankClass = 'rank-tied';
-    }
-    
     li.className = `ranking-item ${rankClass}`;
+    
+    // Rest of the function remains the same...
     
     // Calculate display rank (handle ties)
     let displayRank = index + 1;
@@ -1071,7 +1078,7 @@ function updateListForSSC6() {
   rankingList.appendChild(header6);
 
   const statusGroups = {
-    "進行中": [], // Make sure this exists
+    "進行中": [], // This group will now contain 酒愛花
     "等待比賽": [],
     "已淘汰": []
   };
@@ -1319,8 +1326,7 @@ function createFollowersLineChart() {
     label: creator.name,
     data: [
       oct30Data[creator.name] || 0,
-      previousData[creator.name] || 0, 
-      creator.fans
+      previousData[creator.name] || 0
     ],
     borderColor: `hsl(${Math.random() * 360}, 70%, 50%)`,
     tension: 0.4
@@ -1329,7 +1335,7 @@ function createFollowersLineChart() {
   followersLineChart = new Chart(ctx, {
     type: 'line',
     data: {
-      labels: ['10/30', '11/16', '11/19'],
+      labels: ['10/30', '11/16', '11/24'], // Updated labels
       datasets: datasets
     },
     options: {
