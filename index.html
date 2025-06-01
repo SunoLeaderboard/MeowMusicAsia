@@ -1,47 +1,97 @@
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI音樂中文創作者總排行榜</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meow Music Asia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>AI音樂中文創作者總排行榜</h1>
-    <div id="rankings"></div>
-  </div>
-  
-  <!-- Modal for detailed view -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2 id="modal-title"></h2>
-      <div class="modal-tabs">
-        <button class="tab-btn active" data-tab="stats">成長趨勢</button>
-        <button class="tab-btn" data-tab="songs">熱門曲目</button>
-      </div>
-      <div id="stats-content" class="tab-content active">
-        <div class="chart-container">
-          <canvas id="growth-chart"></canvas>
-        </div>
-      </div>
-      <div id="songs-content" class="tab-content">
-        <div class="top-song">
-          <h3>冠軍曲目</h3>
-          <div id="top-song-container"></div>
-        </div>
-        <div class="popular-songs">
-          <h3>熱門曲目</h3>
-          <div class="songs-wrapper">
-            <div id="popular-songs-container"></div>
-          </div>
-        </div>
-      </div>
+    <div class="neon-background">
+        <div class="grid-overlay"></div>
     </div>
-  </div>
+    
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Meow Music Asia</h1>
+            <nav class="nav">
+                <a href="#home" class="nav-link active">首頁</a>
+                <a href="#artists" class="nav-link">藝術家</a>
+                <a href="#about" class="nav-link">關於</a>
+            </nav>
+        </div>
+    </header>
 
-  <script src="data.js"></script>
-  <script src="script.js"></script>
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1 class="hero-title">
+                    <span class="glitch" data-text="Meow Music">Meow Music</span>
+                    <span class="neon-text">藝術家平台</span>
+                </h1>
+                <p class="hero-subtitle">探索頂尖AI音樂創作者的世界</p>
+                <button class="cta-button" onclick="scrollToArtists()">
+                    <span>開始探索</span>
+                    <div class="button-glow"></div>
+                </button>
+            </div>
+        </section>
+
+        <section id="artists" class="artists-section">
+            <div class="container">
+                <h2 class="section-title">藝術家陣容</h2>
+                <div class="artists-grid" id="artistsGrid">
+                    <!-- Artists will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">關於</h2>
+                <div class="about-content">
+                    <div class="about-announcement-card">
+                        <div class="about-emoji">🎉</div>
+                        <h3 class="about-title">歡迎各位中文用戶來到我們新創的 Discord 伺服器！</h3>
+                        <p class="about-subtitle">
+                            這是一個以 <span class="highlight">AI 音樂創作</span> 為核心的中文社群。<br>
+                            無論你是使用 Suno、Udio、Riffusion，或其他 AI 工具，這裡都是你可以盡情分享、交流與實驗的地方。
+                        </p>
+                        <ul class="about-list">
+                            <li>・分享你的 AI 音樂作品</li>
+                            <li>・討論創作技巧與心得</li>
+                            <li>・互相交流靈感、音樂風格</li>
+                            <li>・找到合作夥伴</li>
+                            <li>・單純想找人聊天，都歡迎你一起加入～</li>
+                        </ul>
+                        <p class="about-welcome">
+                            💬 我們歡迎各種程度的創作者，從新手到老手都很棒！<br>
+                            如果你對未來的音樂創作方式感到興奮，那你來對地方了。
+                        </p>
+                        <div class="about-footer">
+                            <span class="about-motto">🎶 音樂的未來，不只是創作，更是共創。歡迎加入我們一起玩！</span>
+                            <br>
+                            <a href="https://discord.gg/28ZGkYrk" target="_blank" class="discord-link">
+                                👉 點這裡加入我們
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal" id="artistModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
