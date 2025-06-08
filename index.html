@@ -32,7 +32,7 @@
                     <span class="neon-text">藝術家平台</span>
                 </h1>
                 <p class="hero-subtitle">探索頂尖AI音樂創作者的世界</p>
-                <button class="cta-button" onclick="scrollToArtists()">
+                <button class="cta-button" id="scrollToArtistsButton">
                     <span>開始探索</span>
                     <div class="button-glow"></div>
                 </button>
@@ -41,7 +41,7 @@
 
         <section id="artists" class="artists-section">
             <div class="container">
-                <h2 class="section-title">藝術家陣容</h2>
+                <h2 class="section-title"></h2>
                 <div class="artists-grid" id="artistsGrid">
                     <!-- Artists will be dynamically loaded here -->
                 </div>
@@ -50,7 +50,7 @@
 
         <section id="about" class="about-section">
             <div class="container">
-                <h2 class="section-title">關於</h2>
+                <h2 class="section-title"></h2>
                 <div class="about-content">
                     <div class="about-announcement-card">
                         <div class="about-emoji">🎉</div>
@@ -85,13 +85,13 @@
 
     <div class="modal" id="artistModal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
+            <span class="close">&times;</span>
             <div class="modal-body" id="modalBody">
                 <!-- Modal content will be dynamically loaded here -->
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
