@@ -1,0 +1,69 @@
+/* Changelog Section */
+.changelog-section {
+    padding: 6rem 0 8rem 0;
+    background: linear-gradient(60deg, rgba(8, 0, 25, 0.75) 35%, rgba(0,255,255,0.06) 100%);
+}
+
+.changelog-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.changelog-entry {
+    background: var(--glass-bg);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(25px);
+}
+
+.changelog-entry h3 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.6rem;
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+    padding-bottom: 0.8rem;
+}
+
+.changelog-entry ul {
+    list-style: none;
+    padding: 0;
+}
+
+.changelog-entry li {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.changelog-entry li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--neon-green);
+    font-weight: 700;
+}
+
+/* Media Queries for Changelog Section */
+@media (max-width: 768px) {
+    .changelog-entry {
+        padding: 1rem;
+    }
+    .changelog-entry h3 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .changelog-entry h3 {
+        font-size: 1.2rem;
+    }
+    .changelog-entry li {
+        font-size: 1rem;
+    }
+}

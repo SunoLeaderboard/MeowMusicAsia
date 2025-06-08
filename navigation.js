@@ -5,11 +5,11 @@ export function initializeNavigation() {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const target = link.getAttribute('href').substring(1);
-            
+
             // Update active state
             document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
             link.classList.add('active');
-            
+
             // Scroll to section
             if (target === 'home') {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -18,29 +18,30 @@ export function initializeNavigation() {
             }
         });
     });
-    
+
     // Update active nav on scroll
     window.addEventListener('scroll', () => {
-        const sections = ['home', 'artists', 'about'];
+        // Added 'changelog' to the sections array
+        const sections = ['home', 'artists', 'about', 'changelog'];
         const scrollPos = window.scrollY + 200;
-        
+
         let currentSection = 'home';
-        
+
         sections.forEach(section => {
-            const element = section === 'home' ? 
-                document.querySelector('.hero') : 
+            const element = section === 'home' ?
+                document.querySelector('.hero') :
                 document.getElementById(section);
-            
+
             if (element) {
                 const top = element.offsetTop;
                 const bottom = top + element.offsetHeight;
-                
+
                 if (scrollPos >= top && scrollPos < bottom) {
                     currentSection = section;
                 }
             }
         });
-        
+
         // Update active state
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
         const activeLink = document.querySelector(`[href="#${currentSection}"]`);
@@ -56,7 +57,7 @@ export function initializeParallax() {
         const scrolled = window.pageYOffset;
         const parallax = document.querySelector('.neon-background');
         const speed = scrolled * 0.5;
-        
+
         parallax.style.transform = `translateY(${speed}px)`;
     });
 }

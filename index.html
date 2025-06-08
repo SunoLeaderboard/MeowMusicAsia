@@ -4,6 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meow Music Asia</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="hero.css">
+    <link rel="stylesheet" href="artists.css">
+    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="changelog.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
@@ -18,8 +24,9 @@
             <h1 class="logo">Meow Music Asia</h1>
             <nav class="nav">
                 <a href="#home" class="nav-link active">首頁</a>
-                <a href="#artists" class="nav-link">藝術家</a>
+                <a href="#artists" class="nav-link">創作者</a>
                 <a href="#about" class="nav-link">關於</a>
+                <a href="#changelog" class="nav-link">更新日誌</a>
             </nav>
         </div>
     </header>
@@ -29,7 +36,7 @@
             <div class="container">
                 <h1 class="hero-title">
                     <span class="glitch" data-text="Meow Music">Meow Music</span>
-                    <span class="neon-text">藝術家平台</span>
+                    <span class="neon-text">創作者平台</span>
                 </h1>
                 <p class="hero-subtitle">探索頂尖AI音樂創作者的世界</p>
                 <button class="cta-button" id="scrollToArtistsButton">
@@ -41,7 +48,7 @@
 
         <section id="artists" class="artists-section">
             <div class="container">
-                <h2 class="section-title"></h2>
+                <h2 class="section-title">創作者</h2>
                 <div class="artists-grid" id="artistsGrid">
                     <!-- Artists will be dynamically loaded here -->
                 </div>
@@ -50,7 +57,7 @@
 
         <section id="about" class="about-section">
             <div class="container">
-                <h2 class="section-title"></h2>
+                <h2 class="section-title">關於</h2>
                 <div class="about-content">
                     <div class="about-announcement-card">
                         <div class="about-emoji">🎉</div>
@@ -73,10 +80,39 @@
                         <div class="about-footer">
                             <span class="about-motto">🎶 音樂的未來，不只是創作，更是共創。歡迎加入我們一起玩！</span>
                             <br>
-                            <a href="https://discord.gg/28ZGkYrk" target="_blank" class="discord-link">
+                            <a href="https://discord.gg/MHCVqKdKHr" target="_blank" class="discord-link">
                                 👉 點這裡加入我們
                             </a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="changelog" class="changelog-section">
+            <div class="container">
+                <h2 class="section-title">更新日誌</h2>
+                <div class="changelog-content">
+                    <div class="changelog-entry">
+                        <h3>V0.3</h3>
+                        <ul>
+                            <li>將藝術家改為創作者</li>
+                            <li>增加更新日誌</li>
+                            <li>修改Discord網址</li>
+                        </ul>
+                    </div>
+                    <div class="changelog-entry">
+                        <h3>V0.2</h3>
+                        <ul>
+                            <li>增加數個新創作者</li>
+                            <li>將成員分為執事團及一般成員</li>
+                        </ul>
+                    </div>
+                    <div class="changelog-entry">
+                        <h3>V0.1</h3>
+                        <ul>
+                            <li>一切的起源:)</li>
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,156 @@
+/* About Section */
+.about-section {
+    padding: 8rem 0 6rem 0;
+    background: linear-gradient(120deg, rgba(8, 0, 25, 0.75) 35%, rgba(0,255,255,0.06) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.about-announcement-card {
+    background: var(--glass-bg);
+    border-radius: 20px;
+    padding: 3rem 2rem 2.5rem 2rem;
+    backdrop-filter: blur(28px);
+    border: 1.5px solid rgba(0,255,255,0.15);
+    box-shadow: 0 6px 50px 9px rgba(0,255,255,0.07), 0 0px 32px 0px var(--neon-blue);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-emoji {
+    font-size: 2rem;
+    margin-bottom: 1.3rem;
+    animation: floatEmoji 2.7s ease-in-out infinite alternate;
+}
+
+@keyframes floatEmoji {
+    0% { transform: translateY(0);}
+    100% { transform: translateY(-9px);}
+}
+
+.about-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin-bottom: 1.2rem;
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.about-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 1.3rem;
+    line-height: 1.7;
+}
+
+.about-subtitle .highlight {
+    color: var(--neon-blue);
+    font-weight: 700;
+    text-shadow: 0 0 12px var(--neon-blue);
+}
+
+.about-list {
+    text-align: left;
+    margin: 0 auto 1.2rem auto;
+    color: var(--neon-green);
+    font-size: 1.07rem;
+    list-style: none;
+    max-width: 420px;
+    padding-left: 0;
+}
+
+.about-list li {
+    margin-bottom: 0.5em;
+    padding-left: 8px;
+}
+
+.about-welcome {
+    color: var(--text-secondary);
+    margin-bottom: 1.4rem;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.about-footer {
+    margin-top: 1.5rem;
+    font-size: 1.14rem;
+    color: var(--neon-purple);
+    font-weight: 500;
+    word-break: break-all;
+}
+
+.about-motto {
+    display: block;
+    margin-bottom: 0.7em;
+    background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+.discord-link {
+    display: inline-block;
+    margin-top: 0.2em;
+    font-size: 1.08rem;
+    color: var(--neon-blue);
+    background: rgba(0,255,255,0.02);
+    border: 1px solid var(--neon-blue);
+    border-radius: 8px;
+    padding: 0.5em 1.5em;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 0 14px 2px var(--neon-blue, #00ffff);
+    transition: all 0.22s;
+    animation: discord-link-glow 1.3s ease-in-out infinite alternate;
+}
+
+@keyframes discord-link-glow {
+    0% {box-shadow: 0 0 14px 2px var(--neon-blue);}
+    100% {box-shadow: 0 0 22px 9px var(--neon-pink);}
+}
+
+.discord-link:hover {
+    color: var(--dark-bg);
+    background: var(--neon-blue);
+    box-shadow: 0 0 25px 0px var(--neon-blue);
+    border-color: var(--neon-pink);
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* Media Queries for About Section */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+    .about-announcement-card {
+        padding: 1.5rem 1rem 1.7rem 1rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .about-section {
+        padding: 5rem 0 3rem 0;
+    }
+    .about-announcement-card {
+        padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+        font-size: 0.97rem;
+    }
+    .about-title {
+        font-size: 1.1rem;
+    }
+    .about-motto, .discord-link {
+        font-size: 1rem;
+    }
+}

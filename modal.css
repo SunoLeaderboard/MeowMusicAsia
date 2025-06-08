@@ -1,0 +1,126 @@
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px);
+    margin: 5% auto;
+    padding: 3rem;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    color: var(--neon-pink);
+    float: right;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close:hover {
+    text-shadow: 0 0 20px var(--neon-pink);
+    transform: scale(1.2);
+}
+
+.modal-artist-name {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--neon-blue);
+    margin-bottom: 1rem;
+    font-family: 'Orbitron', monospace;
+    text-shadow: 0 0 20px var(--neon-blue);
+}
+
+.modal-followers {
+    font-size: 1.2rem;
+    color: var(--neon-pink);
+    margin-bottom: 2rem;
+}
+
+.modal-section {
+    margin-bottom: 2rem;
+}
+
+.modal-section h3 {
+    color: var(--neon-purple);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.modal-achievements {
+    list-style: none;
+}
+
+.modal-achievements li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    border-left: 3px solid var(--neon-green);
+}
+
+.modal-works {
+    display: grid;
+    gap: 1rem;
+}
+
+.modal-work {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.modal-work:hover {
+    background: rgba(0, 255, 255, 0.1);
+    border-color: var(--neon-blue);
+}
+
+.modal-work a {
+    color: var(--neon-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.modal-work a:hover {
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+/* Media Queries for Modal */
+@media (max-width: 768px) {
+     .modal-content {
+        margin: 10% auto;
+        padding: 2rem;
+        width: 95%;
+    }
+}
