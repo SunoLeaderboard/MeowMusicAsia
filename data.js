@@ -161,6 +161,15 @@ export const artists = {
                 { title: 'Under the Moon', url: 'https://suno.com/song/04440f12-078f-434c-837e-4fac9990713d' },
                 { title: 'Lingering Shades of Rain', url: 'https://suno.com/song/1dc71ed6-4d3c-43ab-b864-ccdaf7700ad7' }
             ]
+        },
+        {
+            name: 'Coreone286',
+            followers: '1.1K',
+            achievements: [],
+            works: [
+                { title: '愛不簡單 Harmony', url: 'https://suno.com/s/KqzYHkolgIwxhkdk' },
+                { title: '愛妳 𝔢𝔱𝔢𝔯𝔫𝔦𝔱𝔶', url: 'https://suno.com/song/86d3e71e-5947-4e5e-a7e1-4a0437435838' }
+            ]
         }
     ],
     members: [
@@ -289,6 +298,96 @@ export const artists = {
             works: [
                 { title: '慢慢地喜欢你', url: 'https://suno.com/s/zNR7jXBrjOY9N5WT' },
                 { title: '记忆的尽头，你还记得我吗？', url: 'https://suno.com/s/OhWCBtO7YppP5DTZ' }
+            ]
+        },
+        {
+            name: 'HOK',
+            followers: '107',
+            achievements: [],
+            works: [
+                { title: 'meow', url: 'https://suno.com/s/jc7rr5g6KDmghovY' },
+                { title: '夜的妝', url: 'https://suno.com/s/OPpE6O0799iT8KSq' }
+            ]
+        },
+        {
+            name: 'danta2353',
+            followers: '17',
+            achievements: [],
+            works: [
+                { title: '若南风知我情深', url: 'https://suno.com/song/657161af-2c51-4d4f-89c7-c8d18427de54' },
+                { title: '不候', url: 'https://suno.com/s/5N0aETf9LYyvahZM' }
+            ]
+        },
+        {
+            name: 'Rastvas',
+            followers: '222',
+            achievements: [],
+            works: [
+                { title: 'Creyst', url: 'https://suno.com/s/Bxgxwgg1mnUxrw42' },
+                { title: 'No.23 Pip-pop', url: 'https://suno.com/song/fd5a7e09-80a0-41fe-85ca-429ec60cea3a' }
+            ]
+        },
+        {
+            name: 'FuturEvoLab',
+            followers: '1.4K',
+            achievements: [],
+            works: [
+                { title: '🐱Cat｜猫', url: 'https://suno.com/s/0uzZygXNIWm6UWwr' },
+                { title: '🎭Yes? No?', url: 'https://suno.com/s/FMqr9usjHUBpX3lx' }
+            ]
+        },
+        {
+            name: '起手氏Begin Clan',
+            followers: '332',
+            achievements: [],
+            works: [
+                { title: '🎶Power of the Stars🎶', url: 'https://suno.com/song/fd25ff68-6cf2-4b3e-8d67-4a9d4d6db6fa' },
+                { title: '🎶傾聽的溫柔🎶', url: 'https://suno.com/s/8OYjlOvjKrGQYYdf' }
+            ]
+        },
+        {
+            name: 'Jane Ford',
+            followers: '205',
+            achievements: [],
+            works: [
+                { title: 'Голос берёзового леса（白樺林的風聲)', url: 'https://suno.com/s/dqzOqtKFuveDY9KD' },
+                { title: 'Hymns-Good Morning, Lord', url: 'https://suno.com/s/iCPEoExxukumv4dk' }
+            ]
+        },
+        {
+            name: 'UncleMartin',
+            followers: '64',
+            achievements: [],
+            works: [
+                { title: '給我', url: 'https://suno.com/song/2ba63b4a-ed5a-42ec-ab1d-67eee9ebc67a' },
+                { title: '沒妳，很好', url: 'https://suno.com/song/19c62d2e-5f0a-4820-9464-9c1ac938eed7' }
+            ]
+        },
+        {
+            name: 'PopKoi',
+            followers: '28',
+            achievements: [],
+            works: [
+                { title: '🍄 灵感菇', url: 'https://suno.com/s/moSXqLWce461sG1a' },
+                { title: '♾️ 平行时空说再见', url: 'https://suno.com/s/bPDqZR70lxml78Oo' }
+            ]
+        },
+        {
+            name: 'Galvaniz',
+            followers: '50',
+            achievements: [],
+            works: [
+                { title: '那個下雨後的週六', url: 'https://suno.com/s/AFEZqf1VelSfraQt' },
+                { title: '火車站旁的滷肉飯', url: 'https://suno.com/s/2ntJGy4RjZlHHfd9' }
+            ]
+        },
+        {
+            name: 'Silamos',
+            followers: '100',
+            achievements: [],
+            works: [
+                { title: 'Tribe meets AI', url: 'https://suno.com/song/ca5d9c1b-8d22-4cd2-8402-7e0a37886018' },
+                { title: 'Blossoms of the Sun', url: 'https://suno.com/s/CHj9oskdQheVRucx' }
             ]
         }
     ]

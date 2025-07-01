@@ -21,8 +21,8 @@ export function initializeNavigation() {
 
     // Update active nav on scroll
     window.addEventListener('scroll', () => {
-        // Added 'changelog' to the sections array
-        const sections = ['home', 'artists', 'about', 'changelog'];
+        // Added 'ssc7' to the sections array
+        const sections = ['home', 'artists', 'playlist', 'competition', 'ssc7', 'about', 'changelog'];
         const scrollPos = window.scrollY + 200;
 
         let currentSection = 'home';

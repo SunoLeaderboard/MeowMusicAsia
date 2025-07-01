@@ -63,6 +63,23 @@
     width: 100%;
 }
 
+/* Add this new style for the about link */
+.nav-link.about-link {
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.nav-link.about-link:hover,
+.nav-link.about-link.active {
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+.nav-link.about-link::after {
+  background: #ff0000;
+  box-shadow: 0 0 10px #ff0000;
+}
+
 /* Media Queries for Header/Navigation */
 @media (max-width: 768px) {
     .header .container {

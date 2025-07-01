@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="modal.css">
     <link rel="stylesheet" href="about.css">
     <link rel="stylesheet" href="changelog.css">
+    <link rel="stylesheet" href="playlist.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="competition.css">
 </head>
 <body>
     <div class="neon-background">
@@ -25,8 +27,9 @@
             <nav class="nav">
                 <a href="#home" class="nav-link active">首頁</a>
                 <a href="#artists" class="nav-link">創作者</a>
-                <a href="#about" class="nav-link">關於</a>
+                <a href="#ssc7" class="nav-link">SSC7</a>
                 <a href="#changelog" class="nav-link">更新日誌</a>
+                <a href="#about" class="nav-link about-link">關於</a>
             </nav>
         </div>
     </header>
@@ -51,6 +54,331 @@
                 <h2 class="section-title">創作者</h2>
                 <div class="artists-grid" id="artistsGrid">
                     <!-- Artists will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <section id="playlist" class="playlist-section">
+            <div class="container">
+                <h2 class="section-title">Meow's Pick Asia精選歌單</h2>
+                <div class="playlist-content">
+                    <div class="playlist-grid">
+                        <div class="playlist-card">
+                            <div class="playlist-header">
+                                <h3 class="playlist-title">五月歌單</h3>
+                                <div class="playlist-description">
+                                    Meow's Pick Asia 🎇 五月版來了！由我們出色的社區精心挑選的歌曲，播放並感受五月最佳歌曲的氛圍！ 🐱🎵
+                                </div>
+                            </div>
+                            <div class="playlist-actions">
+                                <a href="https://suno.com/playlist/54788d2e-e108-452f-b7ec-04eb5239f444" target="_blank" class="playlist-button">
+                                    <span>🎵 聆聽歌單</span>
+                                    <div class="button-glow"></div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="playlist-card">
+                            <div class="playlist-header">
+                                <h3 class="playlist-title">創作賽精選合輯</h3>
+                                <div class="playlist-description">
+                                    🏆 Server Anthem Vol.1｜精選優秀的創作賽作品！
+                                </div>
+                            </div>
+                            <div class="playlist-actions">
+                                <a href="https://suno.com/playlist/879fb33a-367e-440c-abb4-0d3fa0caa98b" target="_blank" class="playlist-button">
+                                    <span>🎵 聆聽歌單</span>
+                                    <div class="button-glow"></div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="playlist-card">
+                            <div class="playlist-header">
+                                <h3 class="playlist-title">Suno魔廚召集令</h3>
+                                <div class="playlist-description">
+                                    🎴 加入音樂創作的魔法廚房，讓我們一起烹飪出絕妙的旋律！ 🔥
+                                </div>
+                            </div>
+                            <div class="playlist-actions">
+                                <a href="https://suno.com/playlist/d6c4ff6e-9851-4b40-be01-ce3aabc39f13" target="_blank" class="playlist-button">
+                                    <span>🎵 聆聽歌單</span>
+                                    <div class="button-glow"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competition" class="competition-section">
+            <div class="container">
+                <h2 class="section-title">競賽冠軍</h2>
+                <div class="competition-content">
+                    <div class="competition-card">
+                        <div class="competition-header">
+                            <h3 class="competition-title">第一屆【伺服器推廣曲創作賽】</h3>
+                            <div class="winner-info">
+                                <span class="winner-badge">🥇 第一名</span>
+                                <h4 class="winning-song">《亞洲喵音樂》</h4>
+                                <span class="winner-name">by 桂花巷子</span>
+                            </div>
+                            <div class="competition-description">
+                                這首融合 [J-pop] 與 [Electronic] 電音風格的超洗腦神曲，<br>
+                                以滿滿的喵能量征服大家的耳朵，也喵進了大家的心裡 🎧💕
+                            </div>
+                        </div>
+                        <div class="competition-actions">
+                            <a href="https://suno.com/song/dfd61d7f-f62c-4ab1-8924-972fd82583b7" target="_blank" class="competition-button">
+                                <span>🎵 聆聽獲獎作品</span>
+                                <div class="button-glow"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ssc7" class="ssc7-section">
+            <div class="container">
+                <h2 class="section-title">SSC7 泛中文圈參賽者</h2>
+                <div class="ssc7-groups">
+                    <div class="ssc7-group">
+                        <h3 class="ssc7-group-title">F組</h3>
+                        <div class="ssc7-entries">
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/15037548-7933-4576-8907-4010b3c4c018" target="_blank">
+                                    <div class="ssc7-creator">Coreone286</div>
+                                    <div class="ssc7-song">Whither the Questioned Blade</div>
+                                    <div class="ssc7-meta">[SSC7, China]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/7458d7b2-6f4a-41cf-a55c-4d4f15755280" target="_blank">
+                                    <div class="ssc7-creator">MusicMoonMan</div>
+                                    <div class="ssc7-song">孤影行</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ssc7-group">
+                        <h3 class="ssc7-group-title">G組</h3>
+                        <div class="ssc7-entries">
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/7204faf1-75d7-4489-850d-c53ebc1ce826" target="_blank">
+                                    <div class="ssc7-creator">RELA.</div>
+                                    <div class="ssc7-song">Neon Sunrise</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/a71cc9a9-2136-4239-a1f1-104b16383748" target="_blank">
+                                    <div class="ssc7-creator">🔱AL ren</div>
+                                    <div class="ssc7-song">Bitter wine and mood</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/2baa3190-2398-413d-8ce6-a9f7c30bd603" target="_blank">
+                                    <div class="ssc7-creator">ρυδδγ</div>
+                                    <div class="ssc7-song">ghost in the hallway🎵</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/c68f49b3-3f51-4cf6-9fb5-8e6a4ba00032" target="_blank">
+                                    <div class="ssc7-creator">Laga George</div>
+                                    <div class="ssc7-song">I burned SUNO down</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/494bddf6-3335-4347-9f6f-1dc8d5321f1c" target="_blank">
+                                    <div class="ssc7-creator">MidnightHour</div>
+                                    <div class="ssc7-song">沉沒 . Sinking</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ssc7-group">
+                        <h3 class="ssc7-group-title">A組</h3>
+                        <div class="ssc7-entries">
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/88d2e51b-5483-41b0-9955-23edd0e47f54" target="_blank">
+                                    <div class="ssc7-creator">【Cool⭐Beat】</div>
+                                    <div class="ssc7-song">We are the G.O.A.T</div>
+                                    <div class="ssc7-meta">[SSC7, Singapore]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/ca5d9c1b-8d22-4cd2-8402-7e0a37886018" target="_blank">
+                                    <div class="ssc7-creator">Silamos</div>
+                                    <div class="ssc7-song">Tribe meets AI</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ssc7-group">
+                        <h3 class="ssc7-group-title">C組</h3>
+                        <div class="ssc7-entries">
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/a6c120bf-e514-4187-b37a-032e494ba0b7" target="_blank">
+                                    <div class="ssc7-creator">柒</div>
+                                    <div class="ssc7-song">怒血溅长街 (Angry blood on the street)</div>
+                                    <div class="ssc7-meta">[SSC7, China]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/37dc0932-64c4-4d23-a2de-ddf80aff8200" target="_blank">
+                                    <div class="ssc7-creator">Wine loves flowers</div>
+                                    <div class="ssc7-song">love you Puffs✨</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/211ea30f-b5d7-44d9-9951-fc5beb72f889" target="_blank">
+                                    <div class="ssc7-creator">GameIsHere🐢</div>
+                                    <div class="ssc7-song">Miracle</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/32143766-1a11-47a4-a367-eacd1e536472" target="_blank">
+                                    <div class="ssc7-creator">alzoooo</div>
+                                    <div class="ssc7-song">幻灭</div>
+                                    <div class="ssc7-meta">[SSC7, China]</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ssc7-group">
+                        <h3 class="ssc7-group-title">D組</h3>
+                        <div class="ssc7-entries">
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/17ea2d5f-ce0f-49e8-816d-2ec862680fc3" target="_blank">
+                                    <div class="ssc7-creator">雪國 Cecilia</div>
+                                    <div class="ssc7-song">魅 Nymph</div>
+                                    <div class="ssc7-meta">[SSC7, China]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/d4a422e2-9ee3-4540-a990-49a519cc6999" target="_blank">
+                                    <div class="ssc7-creator">桂花巷子/Osmanthus Alley</div>
+                                    <div class="ssc7-song">The Light That Waited Millennia</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/d1b1e0b2-835a-4732-a66d-de9e4470f683" target="_blank">
+                                    <div class="ssc7-creator">GAZERIEL</div>
+                                    <div class="ssc7-song">Madness Unleashed | 不笑疯癫</div>
+                                    <div class="ssc7-meta">[SSC7, China]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/d4576f91-c98a-48aa-b858-2180231f3c72" target="_blank">
+                                    <div class="ssc7-creator">Yusry De Luna</div>
+                                    <div class="ssc7-song">SEE YOU NEXT TIME</div>
+                                    <div class="ssc7-meta">[SSC7, Singapore]</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ssc7-group">
+                        <h3 class="ssc7-group-title">E組</h3>
+                        <div class="ssc7-entries">
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/2332ea08-03cf-4398-9456-97c916fc9228" target="_blank">
+                                    <div class="ssc7-creator">Brutus</div>
+                                    <div class="ssc7-song">空蝉の儚</div>
+                                    <div class="ssc7-meta">[SSC7, Japan]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/a52d0199-5992-4895-be78-a30d3cb24c03" target="_blank">
+                                    <div class="ssc7-creator">Hyosen</div>
+                                    <div class="ssc7-song">Rise of the Storm</div>
+                                    <div class="ssc7-meta">[SSC7, Singapore]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/8ae5b71e-bfcc-4c18-bc91-2991d75201fa" target="_blank">
+                                    <div class="ssc7-creator">ChillVibeCircuits</div>
+                                    <div class="ssc7-song">断罪-Conviction</div>
+                                    <div class="ssc7-meta">[SSC7, Malaysia]</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ssc7-group">
+                        <h3 class="ssc7-group-title">A#組</h3>
+                        <div class="ssc7-entries">
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/b3135a5b-6bde-4114-90dd-b6f5e5669a75" target="_blank">
+                                    <div class="ssc7-creator">Wizardx07</div>
+                                    <div class="ssc7-song">胡蝶幻渦(Phantom Vortex of the Butterfly)</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/7bc2c241-5210-4a3f-b1b2-bc65bcfdb613" target="_blank">
+                                    <div class="ssc7-creator">Lumos Light</div>
+                                    <div class="ssc7-song">愛自己 Embrace Myself</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/9d96b2fb-07a4-478d-9c84-a3197bebfb56" target="_blank">
+                                    <div class="ssc7-creator">二月February</div>
+                                    <div class="ssc7-song">Heartbeat Glitch</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ssc7-group">
+                        <h3 class="ssc7-group-title">D#組</h3>
+                        <div class="ssc7-entries">
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/74da3629-424f-4179-9032-bb4bfaacf3fb" target="_blank">
+                                    <div class="ssc7-creator">Leader One</div>
+                                    <div class="ssc7-song">Salome's Invisible Citadel</div>
+                                    <div class="ssc7-meta">[SSC7, Italy]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/4eca5788-0479-4a7a-ab09-fdcef300dfb3" target="_blank">
+                                    <div class="ssc7-creator">起手氏Begin Clan</div>
+                                    <div class="ssc7-song">🎶《One Slash, One Life》🎶</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                            <div class="ssc7-entry">
+                                <a href="https://suno.com/song/e34c4d68-7e59-438e-be71-99e948b9c890" target="_blank">
+                                    <div class="ssc7-creator">Rastvas</div>
+                                    <div class="ssc7-song">Creyst</div>
+                                    <div class="ssc7-meta">[SSC7, Taiwan]</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ssc7-playlist">
+                    <a href="https://suno.com/playlist/1c1fc98d-0b34-4764-a3a5-595547b41bde" target="_blank" class="ssc7-playlist-button">
+                        <span>🎵 完整播放清單</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -93,6 +421,15 @@
             <div class="container">
                 <h2 class="section-title">更新日誌</h2>
                 <div class="changelog-content">
+                    <div class="changelog-entry">
+                        <h3>V0.4</h3>
+                        <ul>
+                            <li>增加數名新成員</li>
+                            <li>增加兩個撥放清單</li>
+                            <li>增加SSC7頁面</li>
+                            <li>增加競賽冠軍頁面</li>
+                        </ul>
+                    </div>
                     <div class="changelog-entry">
                         <h3>V0.3</h3>
                         <ul>
