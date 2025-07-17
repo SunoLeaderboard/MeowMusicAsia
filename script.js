@@ -16,4 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ctaButton) {
         ctaButton.addEventListener('click', scrollToArtists);
     }
+
+    // Initialize playlist filter
+    const playlistFilter = document.getElementById('playlistFilter');
+    const monthlyPlaylists = document.getElementById('monthlyPlaylists');
+    const competitionPlaylists = document.getElementById('competitionPlaylists');
+
+    if (playlistFilter) {
+        playlistFilter.addEventListener('change', (e) => {
+            if (e.target.value === 'monthly') {
+                monthlyPlaylists.style.display = 'grid';
+                competitionPlaylists.style.display = 'none';
+            } else {
+                monthlyPlaylists.style.display = 'none';
+                competitionPlaylists.style.display = 'grid';
+            }
+        });
+    }
 });

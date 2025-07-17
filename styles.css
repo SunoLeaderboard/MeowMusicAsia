@@ -102,6 +102,37 @@ body {
     }
 }
 
+/* Playlist Filter Styles */
+.playlist-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.playlist-filter {
+    background: var(--glass-bg);
+    border: 2px solid var(--neon-blue);
+    color: var(--neon-blue);
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.playlist-filter:hover {
+    box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.playlist-filter option {
+    background: var(--dark-bg);
+    color: var(--text-primary);
+}
+
 @media (max-width: 768px) {
     /* Removed Header and Navigation media queries */
     /* Removed Hero Section media queries */

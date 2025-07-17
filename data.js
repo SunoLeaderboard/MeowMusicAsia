@@ -106,6 +106,7 @@ export const artists = {
             name: '二月February',
             followers: '6.5K',
             achievements: [
+                'Meow music asia主理人',
                 'AI音樂元老',
                 'SSC5半決賽',
                 'SSC6半決賽'
