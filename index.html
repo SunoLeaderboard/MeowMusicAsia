@@ -60,9 +60,32 @@
 
         <section id="playlist" class="playlist-section">
             <div class="container">
-                <h2 class="section-title">Meow's Pick Asia精選歌單</h2>
+                <div class="playlist-header-container">
+                    <h2 class="section-title">Meow's Pick Asia精選歌單</h2>
+                </div>
+                <div class="playlist-filter-container">
+                    <select class="playlist-filter" id="playlistFilter">
+                        <option value="monthly">每月歌單</option>
+                        <option value="competition">比賽歌單</option>
+                    </select>
+                </div>
                 <div class="playlist-content">
-                    <div class="playlist-grid">
+                    <div class="playlist-grid" id="monthlyPlaylists">
+                        <div class="playlist-card">
+                            <div class="playlist-header">
+                                <h3 class="playlist-title">六月歌單</h3>
+                                <div class="playlist-description">
+                                    Meow's Pick Asia 🌞 六月號來了！讓我們用音樂迎接夏天的熾熱，享受這些精心挑選的佳作！ 🎵✨
+                                </div>
+                            </div>
+                            <div class="playlist-actions">
+                                <a href="https://suno.com/playlist/7fe4c4c9-4d34-40de-8033-341bfc167a1a" target="_blank" class="playlist-button">
+                                    <span>🎵 聆聽歌單</span>
+                                    <div class="button-glow"></div>
+                                </a>
+                            </div>
+                        </div>
+
                         <div class="playlist-card">
                             <div class="playlist-header">
                                 <h3 class="playlist-title">五月歌單</h3>
@@ -77,7 +100,9 @@
                                 </a>
                             </div>
                         </div>
+                    </div>
 
+                    <div class="playlist-grid" id="competitionPlaylists" style="display: none;">
                         <div class="playlist-card">
                             <div class="playlist-header">
                                 <h3 class="playlist-title">創作賽精選合輯</h3>
@@ -107,6 +132,21 @@
                                 </a>
                             </div>
                         </div>
+
+                        <div class="playlist-card">
+                            <div class="playlist-header">
+                                <h3 class="playlist-title">非洲部落節慶</h3>
+                                <div class="playlist-description">
+                                    🌍 感受非洲部落的節慶氛圍，讓陽光般燦爛的音樂帶你展開文化之旅！ 🌞
+                                </div>
+                            </div>
+                            <div class="playlist-actions">
+                                <a href="https://suno.com/playlist/2a0813a5-cc49-461c-9043-ab5e72bb1bb0" target="_blank" class="playlist-button">
+                                    <span>🎵 聆聽歌單</span>
+                                    <div class="button-glow"></div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -131,6 +171,51 @@
                         </div>
                         <div class="competition-actions">
                             <a href="https://suno.com/song/dfd61d7f-f62c-4ab1-8924-972fd82583b7" target="_blank" class="competition-button">
+                                <span>🎵 聆聽獲獎作品</span>
+                                <div class="button-glow"></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="competition-card">
+                        <div class="competition-header">
+                            <h3 class="competition-title">【Suno魔廚召集令】</h3>
+                            <div class="winner-info">
+                                <span class="winner-badge">🥇 第一名</span>
+                                <h4 class="winning-song">《孟婆湯加珍珠》</h4>
+                                <span class="winner-name">by 裴芸PuiWan</span>
+                            </div>
+                            <div class="competition-description">
+                                歷經數輪投票與地府萬鬼搖旗吶喊，裴芸 PuiWan🐐的禁忌之歌——<br>
+                                《孟婆湯加珍珠》<br>
+                                正式榮登幽冥料理界的流行神話，<br>
+                                讓奈何橋排起隊、讓牛頭馬面也搖珍奶！
+                            </div>
+                        </div>
+                        <div class="competition-actions">
+                            <a href="https://suno.com/s/Ekt6VxBkIj1xBPoP" target="_blank" class="competition-button">
+                                <span>🎵 聆聽獲獎作品</span>
+                                <div class="button-glow"></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="competition-card">
+                        <div class="competition-header">
+                            <h3 class="competition-title">【Suno魔廚召集令】</h3>
+                            <div class="winner-info">
+                                <span class="winner-badge">🥇 第一名</span>
+                                <h4 class="winning-song">《皮蛋豆腐涼拌才對味》</h4>
+                                <span class="winner-name">by 麥客官</span>
+                            </div>
+                            <div class="competition-description">
+                                在歷經數輪激烈投票後，這首由麥客官創作的傳世神曲——<br>
+                                《皮蛋豆腐涼拌才對味》<br>
+                                終於登上料理宇宙的巔峰！
+                            </div>
+                        </div>
+                        <div class="competition-actions">
+                            <a href="https://suno.com/song/cd6befb1-37c3-45b5-be5c-84373e6bb3c4" target="_blank" class="competition-button">
                                 <span>🎵 聆聽獲獎作品</span>
                                 <div class="button-glow"></div>
                             </a>
@@ -421,6 +506,14 @@
             <div class="container">
                 <h2 class="section-title">更新日誌</h2>
                 <div class="changelog-content">
+                    <div class="changelog-entry">
+                        <h3>V0.5</h3>
+                        <ul>
+                            <li>增加數名新成員</li>
+                            <li>增加數個撥放清單</li>
+                            <li>增加競賽冠軍</li>
+                        </ul>
+                    </div>
                     <div class="changelog-entry">
                         <h3>V0.4</h3>
                         <ul>
